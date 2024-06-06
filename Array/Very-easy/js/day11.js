@@ -73,7 +73,7 @@ function additiveInverse(arr) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > 0) {
             res.push(-arr[i])
-        }else{
+        } else {
             res.push(-arr[i])
         }
     }
@@ -92,11 +92,11 @@ function additiveInverse(arr) {
 // Examples
 
 function nthSmallest(arr, n) {
-    let sortArr = arr.sort((a,b)=> a-b);
+    let sortArr = arr.sort((a, b) => a - b);
     if (n > arr.length) {
         return null;
     }
-    return sortArr[n-1]
+    return sortArr[n - 1]
 }
 
 // console.log(nthSmallest([1, 3, 5, 7], 1));  //➞ 1
@@ -124,10 +124,10 @@ function nthSmallest(arr, n) {
 // }
 
 function transform(arr) {
-    return arr.map((num, index)=> {
+    return arr.map((num, index) => {
         if (index % 2 === 0) {
-            return num + 1; 
-        }else{
+            return num + 1;
+        } else {
             return num - 1;
         }
     });
@@ -176,7 +176,7 @@ function getDiscounts(arr, str) {
 function filterStateNames(arr, str) {
     if (str === "abb") {
         return arr.filter(state => state.length === 2);
-    }else if(str === "full"){
+    } else if (str === "full") {
         return arr.filter(state => state.length > 2);
     }
 }
@@ -198,7 +198,7 @@ function filterStateNames(arr, str) {
 // Examples
 
 // function formatDate(str) {
-    // return str.split("/").reverse().join("");
+// return str.split("/").reverse().join("");
 // }
 
 function formatDate(str) {
@@ -211,9 +211,9 @@ function formatDate(str) {
         if (str[i] !== "/") {
             if (year.length < 4) {
                 year += str[i];
-            }else if(month.length < 2){
+            } else if (month.length < 2) {
                 month += str[i];
-            }else{
+            } else {
                 day += str[i];
             }
         }
@@ -234,7 +234,7 @@ function formatDate(str) {
 // Examples
 
 // function repeat(str, num) {
-    // return Array(num).fill(str)
+// return Array(num).fill(str)
 // }
 
 function repeat(str, num) {
@@ -264,18 +264,31 @@ function repeat(str, num) {
 //     });
 // }
 
-function returnOnlyInteger(arr) {
-    let res = [];
+// function returnOnlyInteger(arr) {
+//     let res = [];
 
-    for (let i = 0; i < arr.length; i++) {
-        if (Number.isInteger(arr[i])) {
-            res.push(arr[i])
+//     for (let i = 0; i < arr.length; i++) {
+//         if (Number.isInteger(arr[i])) {
+//             res.push(arr[i])
+//         }
+//     }
+//     return res
+// }
+
+// function returnOnlyInteger(arr) {
+//     return arr.filter(num => Number.isInteger(num));
+// }
+
+function returnOnlyInteger(arr) {
+    return arr.reduce((acc,num) => {
+        if (Number.isInteger(num)) {
+            acc.push(num);
         }
-    }
-    return res
+        return acc;
+    },[]);
 }
 
 console.log(returnOnlyInteger([9, 2, "space", "car", "lion", 16]));  //➞ [9, 2, 16]
 console.log(returnOnlyInteger(["hello", 81, "basketball", 123, "fox"]));  //➞ [81, 123]
 console.log(returnOnlyInteger([10, "121", 56, 20, "car", 3, "lion"]));  //➞ [10, 56, 20, 3]
-console.log(returnOnlyInteger(["String",  true,  3.3,  1]));  //➞ [1]
+console.log(returnOnlyInteger(["String", true, 3.3, 1]));  //➞ [1]

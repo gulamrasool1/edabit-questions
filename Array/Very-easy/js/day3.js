@@ -171,14 +171,20 @@ function getMultipliedArr(arr) {
 
 // Examples
 
-function wordLengths(arr) {
-    let res = [];
-    for(let i = 0; i < arr.length; i++ ){
-        res.push(arr[i].length);
-    }
-    return res;
+function wordLengths(arr1) {
+    // let res = [];
+    // for(let i = 0; i < arr.length; i++ ){
+    //     res.push(arr[i].length);
+    // }
+    // return res;
+
+    // return arr1.map((arr2) => {
+    //     return arr2.length
+    // })
+
+    return arr1.length
 }
 
-// console.log( wordLengths(["hello", "world"])); //➞ [5, 5]
-// console.log( wordLengths(["Halloween", "Thanksgiving", "Christmas"])); //➞ [9, 12, 9]
-// console.log( wordLengths(["She", "sells", "seashells", "down", "by", "the", "seashore"])); //➞ [3, 5, 9, 4, 2, 3, 8]
+console.log(wordLengths(["hello", "world"])); //➞ [5, 5]
+console.log(wordLengths(["Halloween", "Thanksgiving", "Christmas"])); //➞ [9, 12, 9]
+console.log(wordLengths(["She", "sells", "seashells", "down", "by", "the", "seashore"])); //➞ [3, 5, 9, 4, 2, 3, 8]
