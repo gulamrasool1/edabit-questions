@@ -123,10 +123,10 @@ function divisible(arr) {
     return false;
 }
 
-// console.log(divisible([3, 2, 4, 2]));  //➞ false
-// console.log(divisible([4, 2, 6]));  //➞ true
-// // 4 * 2 * 6 / (4 + 2 + 6)
-// console.log(divisible([3, 5, 1]));  //➞ false
+console.log(divisible([3, 2, 4, 2]));  //➞ false
+console.log(divisible([4, 2, 6]));  //➞ true
+// 4 * 2 * 6 / (4 + 2 + 6)
+console.log(divisible([3, 5, 1]));  //➞ false
 
 
 
