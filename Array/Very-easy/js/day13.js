@@ -192,20 +192,3 @@ function greetPeople(arr) {
 // console.log(greetPeople(["Angela", "Joe"]));  //➞ "Hello Angela, Hello Joe"
 // console.log(greetPeople(["Frank", "Angela", "Joe"]));  //➞ "Hello Frank, Hello Angela, Hello Joe"
 
-
-
-// 126 Lexicographically First and Last
-// Write a function that returns the lexicographically first and lexicographically last rearrangements of a lowercase string. Output the results in the following manner:
-
-// firstAndLast(string) ➞ [first, last]
-// Examples
-
-function firstAndLast(str) {
-    const sortedStr = str.split('').sort().join('');
-    const reversedStr = str.split('').sort().reverse().join('');
-    return [sortedStr, reversedStr]; 
-}
-
-console.log(firstAndLast("marmite"));  //➞ ["aeimmrt", "trmmiea"]
-console.log(firstAndLast("bench"));  //➞ ["bcehn", "nhecb"]
-console.log(firstAndLast("scoop"));  //➞ ["coops", "spooc"]
