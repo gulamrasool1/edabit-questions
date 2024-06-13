@@ -15,12 +15,12 @@ function mean(arr) {
     for (let i = 0; i < arr.length; i++) {
         res += arr[i]
     }
-    return res/arr.length
+    return res / arr.length
 }
 
-// console.log(mean([1, 6, 6, 7, 8, 8, 9, 10, 10]));  //➞ 7.2
-// console.log(mean([1, 3, 8, 9, 9, 10]));  //➞ 6.7
-// console.log(mean([2, 3, 3, 6, 6, 8, 9, 10]));  //➞ 5.9
+// console.log(mean([1, 6, 6, 7, 8, 8, 9, 10, 10])););   //  7.2
+// console.log(mean([1, 3, 8, 9, 9, 10])););   //  6.7
+// console.log(mean([2, 3, 3, 6, 6, 8, 9, 10])););   //  5.9
 
 
 // 120 Product of All Odd Integers
@@ -44,9 +44,9 @@ function oddProduct(arr) {
     return res
 }
 
-// console.log(oddProduct([3, 4, 1, 1, 5]));  //➞ 15
-// console.log(oddProduct([5, 5, 8, 2, 4, 32]));  //➞ 25
-// console.log(oddProduct([1, 2, 1, 2, 1, 2, 1, 2]));  //➞ 1
+// console.log(oddProduct([3, 4, 1, 1, 5])););   //  15
+// console.log(oddProduct([5, 5, 8, 2, 4, 32])););   //  25
+// console.log(oddProduct([1, 2, 1, 2, 1, 2, 1, 2])););   //  1
 
 
 
@@ -70,16 +70,16 @@ function minimumRemovals(arr) {
     for (let i = 0; i < arr.length; i++) {
         res = res + arr[i];
     };
-    if (res % 2 ===0) {
+    if (res % 2 === 0) {
         return 0;
-    }else{
+    } else {
         return 1;
     }
 }
 
-// console.log(minimumRemovals([1, 2, 3, 4, 5]));  //➞ 1
-// console.log(minimumRemovals([5, 7, 9, 11]));  //➞ 0
-// console.log(minimumRemovals([5, 7, 9, 12]));  //➞ 1
+// console.log(minimumRemovals([1, 2, 3, 4, 5])););   //  1
+// console.log(minimumRemovals([5, 7, 9, 11])););   //  0
+// console.log(minimumRemovals([5, 7, 9, 12])););   //  1
 
 
 
@@ -94,17 +94,17 @@ function minimumRemovals(arr) {
 // }
 
 function middleEarth(arr) {
-    for (let i = 0; i < arr.length; i++) {  
-        if ((arr[i] === 'Sam' && arr[i + 1] === 'Frodo') || (arr[i] === 'Frodo' && arr[i + 1] === 'Sam')){
-            return true;      
-        }     
+    for (let i = 0; i < arr.length; i++) {
+        if ((arr[i] === 'Sam' && arr[i + 1] === 'Frodo') || (arr[i] === 'Frodo' && arr[i + 1] === 'Sam')) {
+            return true;
+        }
     }
     return false
 }
 
-// console.log(middleEarth(["Frodo", "Sam", "Gandalf"]));  //➞true
-// console.log(middleEarth(["Frodo", "Saruman", "Sam"]));  //➞false
-// console.log(middleEarth(["Orc", "Sam", "Frodo", "Legolas"]));  //➞true
+// console.log(middleEarth(["Frodo", "Sam", "Gandalf"])););   // true
+// console.log(middleEarth(["Frodo", "Saruman", "Sam"])););   // false
+// console.log(middleEarth(["Orc", "Sam", "Frodo", "Legolas"])););   // true
 
 
 
@@ -114,26 +114,26 @@ function middleEarth(arr) {
 // Examples
 
 // function findEvenNums(num) {
-    // let res = [];
-    // for (let i = 1; i <= num; i++) {
-    //     if (i % 2 === 0) {
-    //         res.push(i)
-    //     }
-    // }
-    // return res
+// let res = [];
+// for (let i = 1; i <= num; i++) {
+//     if (i % 2 === 0) {
+//         res.push(i)
+//     }
+// }
+// return res
 // }
 
 function findEvenNums(num) {
     let res = []
-    for (let i = 2; i <= num; i+= 2) {
+    for (let i = 2; i <= num; i += 2) {
         res.push(i)
     }
     return res
 }
 
-// console.log(findEvenNums(8));  //➞ [2, 4, 6, 8]
-// console.log(findEvenNums(4));  //➞ [2, 4]
-// console.log(findEvenNums(2));  //➞ [2]
+// console.log(findEvenNums(8)););   //  [2, 4, 6, 8]
+// console.log(findEvenNums(4)););   //  [2, 4]
+// console.log(findEvenNums(2)););   //  [2]
 
 
 // 124 Retrieve the Last N Elements
@@ -159,10 +159,10 @@ function last(arr, n) {
     return res
 }
 
-// console.log(last([1, 2, 3, 4, 5], 1));  //➞ [5]
-// console.log(last([4, 3, 9, 9, 7, 6], 3));  //➞ [9, 7, 6]
-// console.log(last([1, 2, 3, 4, 5], 7));  //➞ "invalid"
-// console.log(last([1, 2, 3, 4, 5], 0));  //➞ []
+// console.log(last([1, 2, 3, 4, 5], 1)););   //  [5]
+// console.log(last([4, 3, 9, 9, 7, 6], 3)););   //  [9, 7, 6]
+// console.log(last([1, 2, 3, 4, 5], 7)););   //  "invalid"
+// console.log(last([1, 2, 3, 4, 5], 0)););   //  []
 
 
 
@@ -188,24 +188,79 @@ function greetPeople(arr) {
     return result.join(", ")
 }
 
-// console.log(greetPeople(["Joe"]));  //➞ "Hello Joe"
-// console.log(greetPeople(["Angela", "Joe"]));  //➞ "Hello Angela, Hello Joe"
-// console.log(greetPeople(["Frank", "Angela", "Joe"]));  //➞ "Hello Frank, Hello Angela, Hello Joe"
+// console.log(greetPeople(["Joe"])););   //  "Hello Joe"
+// console.log(greetPeople(["Angela", "Joe"])););   //  "Hello Angela, Hello Joe"
+// console.log(greetPeople(["Frank", "Angela", "Joe"])););   //  "Hello Frank, Hello Angela, Hello Joe"
 
 
 
 // 126 Lexicographically First and Last
 // Write a function that returns the lexicographically first and lexicographically last rearrangements of a lowercase string. Output the results in the following manner:
 
-// firstAndLast(string) ➞ [first, last]
+// firstAndLast(stri);   //  [first, last]
 // Examples
 
 function firstAndLast(str) {
-   const sortedStr = str.split('').sort().join('');
-  const reversedStr = str.split('').sort().reverse().join('');
-  return [sortedStr, reversedStr]; 
+
 }
 
-console.log(firstAndLast("marmite"));  //➞ ["aeimmrt", "trmmiea"]
-console.log(firstAndLast("bench"));  //➞ ["bcehn", "nhecb"]
-console.log(firstAndLast("scoop"));  //➞ ["coops", "spooc"]
+// console.log(firstAndLast("marmite")););   //  ["aeimmrt", "trmmiea"]
+// console.log(firstAndLast("bench")););   //  ["bcehn", "nhecb"]
+// console.log(firstAndLast("scoop")););   //  ["coops", "spooc"]
+
+
+
+// 127 Same Number of Unique Elements
+// Write a function that returns true if two arrays have the same number of unique elements, and false otherwise.
+
+// To illustrate:
+
+// arr1 = [1, 3, 4, 4, 4]
+// arr2 = [2, 5, 7]
+// In arr1, the number 4 appears three times, which means it contains three unique elements: [1, 3, 4]. Since arr1 and arr2 both contain the same number of unique elements, this example would return true.
+
+// Examples
+
+// function same(arr1, arr2) {
+//     return new Set(arr1).size === new Set(arr2).size   
+// }
+
+function same(arr1, arr2) {
+    for (let i = 0; i < arr1.length; i++) {
+        if (new Set(arr1).size === new Set(arr2).size) {
+            return true
+        }
+    }
+    return false
+}
+
+// console.log(same([1, 3, 4, 4, 4], [2, 5, 7])););   //  true
+// console.log(same([9, 8, 7, 6], [4, 4, 3, 1])););   //  false
+// console.log(same([2], [3, 3, 3, 3, 3])););   //  true
+
+
+
+// 128Recursion: Array Sum
+// Write a function that finds the sum of an array. Make your function recursive.
+
+// Examples
+
+// function sum(arr) {
+//     let result = 0
+//     arr.forEach(elem => result += elem)   
+//     return result
+// }
+
+function sum(arr) {
+    let result = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        result += arr[i]
+    }
+    return result
+}
+
+// console.log(sum([1, 2, 3, 4])););   //  10
+// console.log(sum([1, 2])););   //  3
+// console.log(sum([1])););   //  1
+// console.log(sum([])););   //  0
