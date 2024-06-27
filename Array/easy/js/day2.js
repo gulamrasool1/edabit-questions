@@ -40,7 +40,7 @@ function findLargestNums(arr) {
 function set(arr) {
     let result = [];
     for (let i = 0; i < arr.length; i++) {
-        if(!result.includes(arr[i])){
+        if (!result.includes(arr[i])) {
             result.push(arr[i])
         }
     }
@@ -66,12 +66,12 @@ function set(arr) {
 //     return `(${a}) ${b}-${c}`;   
 // }   
 
-function formatPhoneNumber(arr){
+function formatPhoneNumber(arr) {
     let result = "";
     for (let i = 0; i < arr.length; i++) {
-        if(i === 0) result += "(";
-        if(i === 3) result += ") ";
-        if(i === 6) result += "-"
+        if (i === 0) result += "(";
+        if (i === 3) result += ") ";
+        if (i === 6) result += "-"
         result += arr[i]
     }
     return result;
@@ -106,7 +106,7 @@ function formatPhoneNumber(arr){
 // }
 
 function amplify(num) {
-    return Array.from({length: num}, (_, i) => {
+    return Array.from({ length: num }, (_, i) => {
         const num1 = i + 1;
         return num1 % 4 === 0 ? num1 * 10 : num1;
     })
@@ -171,9 +171,9 @@ function societyName(arr) {
 
 function arrayOperation(x, y, n) {
     let result = [];
-    for (let i = x; i <= y; i++){
+    for (let i = x; i <= y; i++) {
         result.push(i);
-    } 
+    }
     return result.filter((a) => a % n === 0);
 }
 
@@ -275,8 +275,26 @@ function battingAvg(arr) {
 //     return str.toString().split("").map(Number)
 // }
 
+// function toNumber(arr) {
+//     return arr.join("");
+// }
+
+// function toArray(str) {
+//     let stringVal = str.toString()
+//     let result = [];
+//     for (let i = 0; i < stringVal.length; i++) {
+//         let loopVal = Number(stringVal[i])
+//         result.push(loopVal)
+//     }
+//     return result
+// }
+
 function toNumber(arr) {
-    return arr.join("");
+    let result = "";
+    for (let i = 0; i < arr.length; i++) {
+        result += arr[i]
+    }
+    return result
 }
 
 // console.log(toArray(235));  //➞ [2, 3, 5]
@@ -333,7 +351,7 @@ function sliceSum(arr, val) {
     for (let i = 0; i < val; i++) {
         result += arr[i]
     }
-    return result 
+    return result
 }
 
 // console.log(sliceSum([1, 3, 2], 2)); //➞ 4
@@ -363,17 +381,17 @@ function countOnes(arr) {
     return result;
 }
 
-console.log(countOnes([
-  [1, 0],
-  [0, 0]
-]));  //➞ 1
-console.log(countOnes([
-  [1, 1, 1],
-  [0, 0, 1],
-  [1, 1, 1]
-]));  //➞ 7
-console.log(countOnes([
-  [1, 2, 3],
-  [0, 2, 1],
-  [5, 7, 33]
-]));  //➞ 2
+// console.log(countOnes([
+//     [1, 0],
+//     [0, 0]
+// ]));  //➞ 1
+// console.log(countOnes([
+//     [1, 1, 1],
+//     [0, 0, 1],
+//     [1, 1, 1]
+// ]));  //➞ 7
+// console.log(countOnes([
+//     [1, 2, 3],
+//     [0, 2, 1],
+//     [5, 7, 33]
+// ]));  //➞ 2
