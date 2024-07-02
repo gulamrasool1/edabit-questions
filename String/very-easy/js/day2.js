@@ -321,9 +321,48 @@ function stutter(str) {
 // Examples
 
 function toNumberArray(arr) {
-    return Number(arr)
+    // return arr.map(Number)
+
+    return arr.map(parseFloat);
 }
 
-console.log(toNumberArray(["9.4", "4.2"]));   //➞ [9.4, 4.2]
-console.log(toNumberArray(["91", "44"])); //➞ [91, 44]
-console.log(toNumberArray(["9.5", "8.8"]));   //➞ [9.5, 8.8]
+// console.log(toNumberArray(["9.4", "4.2"]));   //➞ [9.4, 4.2]
+// console.log(toNumberArray(["91", "44"])); //➞ [91, 44]
+// console.log(toNumberArray(["9.5", "8.8"]));   //➞ [9.5, 8.8]
+
+
+
+// 30 Fraction Greater Than One
+// Given a fraction as a string, return whether or not it is greater than 1 when evaluated.
+
+// Examples
+
+// function greaterThanOne(str) {
+//     return eval(str) > 1;
+// }
+
+function greaterThanOne(str) {
+    const [str1, str2] = str.split("/").map(Number);
+    return str1 > str2;
+}
+
+// console.log(greaterThanOne("1/2"));//➞ false
+// console.log(greaterThanOne("7/4"));//➞ true
+// console.log(greaterThanOne("10/10"));  //➞ false
+
+
+
+// 31 Default Mood
+// Create a function that takes in a current mood and return a sentence in the following format: "Today, I am feeling {mood}". However, if no argument is passed, return "Today, I am feeling neutral".
+
+// Examples
+
+// function moodToday(mood = "neutral") {
+    // return "today, I am feeling " + mood
+
+    // return `today, I am feeling ${mood}`
+// }
+
+console.log(moodToday("happy"));  //➞ "Today, I am feeling happy"
+console.log(moodToday("sad"));  //➞ "Today, I am feeling sad"
+console.log(moodToday());  //➞ "Today, I am feeling neutral"
