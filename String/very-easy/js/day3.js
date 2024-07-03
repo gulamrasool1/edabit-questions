@@ -195,6 +195,45 @@ function longBurp(num) {
     return result;
 }
 
-console.log(longBurp(3));  //➞ "Burrrp"
-console.log(longBurp(5));  //➞ "Burrrrrp"
-console.log(longBurp(9));  //➞ "Burrrrrrrrrp"
+// console.log(longBurp(3));  //➞ "Burrrp"
+// console.log(longBurp(5));  //➞ "Burrrrrp"
+// console.log(longBurp(9));  //➞ "Burrrrrrrrrp"
+
+
+
+// 41 Spaces Between Each Character
+// Create a function that takes a string and returns a string with spaces in between all of the characters.
+
+// Examples
+
+// function spaceMeOut(str) {
+//     return str.split("").join(" ");
+// }
+
+function spaceMeOut(str) {
+    let result = ""
+    for (let i = 0; i < str.length; i++) {
+        result += str[i] + " "
+    }
+    return result;
+}
+
+// console.log(spaceMeOut("space"));  //➞ "s p a c e"
+// console.log(spaceMeOut("far out"));  //➞ "f a r   o u t"
+// console.log(spaceMeOut("elongated musk"));  //➞ "e l o n g a t e d   m u s k"
+
+
+
+// 42 Modifying the Last Character
+// Create a function which makes the last character of a string repeat n number of times.
+
+// Examples
+
+function modifyLast(str, n) {
+    let lastChar = str.charAt(str.length - 1);
+    return str + lastChar.repeat(n);
+}
+
+console.log(modifyLast("Hello", 3));   //➞ "Hellooo"
+console.log(modifyLast("hey", 6));   //➞ "heyyyyyy"
+console.log(modifyLast("excuse me what?", 5));   //➞ "excuse me what?????"
