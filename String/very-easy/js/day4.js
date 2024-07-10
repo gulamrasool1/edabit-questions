@@ -478,4 +478,3 @@ function calculate(num1, num2, op) {
 // console.log(calculate(6, 3, "*"));  //➞ 18
 // console.log(calculate(25, 5, "/"));   //➞ 5
 // console.log(calculate(14, 3, "%"));   //➞ 2
-
