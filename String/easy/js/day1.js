@@ -348,7 +348,7 @@ function firstVowel(str) {
     for (let i = 0; i < str.length; i++) {
         if (vowels.includes(str[i])) {
             return i;
-        }   
+        }
     }
     return -1
 }
@@ -370,10 +370,10 @@ function isTrue(str) {
     return eval(relation);
 }
 
-console.log(isTrue("2=2"));  //➞ true
-console.log(isTrue("8<7"));  //➞ false
-console.log(isTrue("5=13")); //  //➞ false
-console.log(isTrue("15>4"));  //➞ true
+// console.log(isTrue("2=2"));  //➞ true
+// console.log(isTrue("8<7"));  //➞ false
+// console.log(isTrue("5=13")); //  //➞ false
+// console.log(isTrue("15>4"));  //➞ true
 
 
 
@@ -416,3 +416,33 @@ function sayHelloBye(str, num) {
 // console.log(sayHelloBye("alon", 1));  //➞ "Hello Alon"
 // console.log(sayHelloBye("Tomi", 0));  //➞ "Bye Tomi"
 // console.log(sayHelloBye("jose", 0));  //➞ "Bye Jose"
+
+
+// 17 Capitalize by ASCII
+// Create a function that takes a string as input and capitalizes a letter if its ASCII code is even and returns its lower case version if its ASCII code is odd.
+
+// Examples
+
+// function asciiCapitalize(str) {
+// return str
+//     .split('')
+//     .map(char => {
+//         if (char.charCodeAt(0) % 2 === 0) {
+//             return char.toUpperCase();
+//         }else{
+//             return char.toLowerCase();
+//         }
+//     })
+//     .join("")
+// }
+
+function asciiCapitalize(str) {
+    return str
+        .split('')
+        .map(char => char.charCodeAt(0) % 2 === 0 ? char.toUpperCase() : char.toLowerCase())
+        .join('')
+}
+
+// console.log(asciiCapitalize("to be or not to be!"));  //➞ "To Be oR NoT To Be!"
+// console.log(asciiCapitalize("THE LITTLE MERMAID"));  //➞ "THe LiTTLe meRmaiD"
+// console.log(asciiCapitalize("Oh what a beautiful morning."));  //➞ "oH wHaT a BeauTiFuL moRNiNg."
