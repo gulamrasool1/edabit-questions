@@ -444,3 +444,81 @@ function isSuffix(word, suffix) {
 // console.log(isSuffix("arachnophobia", "-phobia"));  //➞ true
 // console.log(isPrefix("retrospect", "sub-"));  //➞ false
 // console.log(isSuffix("vocation", "-logy"));  //➞ false
+
+
+
+// 33 Hiding the Card Number
+// Write a function that takes a credit card number and only displays the last four characters. The rest of the card number must be replaced by ************.
+
+// Examples
+
+// function cardHide(str) {
+//     let masked = str.slice(0, -4).replace(/./g, '*');
+//     let lastFour = str.slice(-4);
+//     return masked + lastFour;
+// }
+
+function cardHide(str) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        result += '*';
+    }
+    result += str.slice(-4);
+    return result;
+}
+
+// console.log(cardHide("1234123456785678"));  //➞ "************5678"
+// console.log(cardHide("8754456321113213"));  //➞ "************3213"
+// console.log(cardHide("35123413355523"));  //➞ "**********5523"
+
+
+
+// 34 Spelling it Out
+// Create a function which takes in a word and spells it out, by consecutively adding letters until the full word is completed.
+
+// Examples
+
+// function spelling(str) {
+//     let result = [];
+//     for (let i = 1; i <= str.length; i++) {
+//         result.push(str.slice(0, i))
+//     }
+//     return result;
+// }
+
+function spelling(str) {
+    return Array.from({length: str.length}, (_, i) => str.slice(0, i + 1));
+}
+
+// console.log(spelling("bee"));  //➞ ["b", "be", "bee"]
+// console.log(spelling("happy"));  //➞ ["h", "ha", "hap", "happ", "happy"]
+// console.log(spelling("eagerly"));  //➞ ["e", "ea", "eag", "eage", "eager", "eagerl", "eagerly"]
+
+
+
+// 35 Join Two Portions of a Path
+// Write a function that receives two portions of a path and joins them. The portions will be joined with the "/" separator. There could be only one separator and if it is not present it should be added.
+
+// Examples
+
+// function joinPath(str1, str2) {
+//     str1 = str1.replace(/\/$/, '');
+//     str2 = str2.replace(/^\//, '');
+//     return str1 + '/' + str2;
+// }
+
+function joinPath(str1, str2) {
+    if (str1.endsWith('/')) {
+        str1 = str1.slice(0, -1);
+    }
+    if (str2.startsWith('/')) {
+        str2 = str2.slice(1);
+    }
+
+    return str1 + '/' + str2;
+}
+
+console.log(joinPath("portion1", "portion2"));  //➞ "portion1/portion2"
+console.log(joinPath("portion1/", "portion2"));  //➞ "portion1/portion2"
+console.log(joinPath("portion1", "/portion2"));  //➞ "portion1/portion2"
+console.log(joinPath("portion1/", "/portion2"));  //➞ "portion1/portion2"
