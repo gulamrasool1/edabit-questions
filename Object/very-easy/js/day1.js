@@ -244,10 +244,10 @@ function cityFacts(city) {
 // Examples
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8]
-first = arr[0];
-second = arr[1];
-third = arr[2];
-other = arr.slice(3);
+// first = arr[0];
+// second = arr[1];
+// third = arr[2];
+// other = arr.slice(3);
 
 // console.log(first);  //➞ 1
 // console.log(second);  //➞ 2
@@ -457,11 +457,38 @@ p1 = new Player("David Jones", 25, 175, 75)
 
 // Examples
 
+// function isInRange(num, math) {
+//     return num >= math.min && num <= math.max;
+// }
+
 function isInRange(num, math) {
-    
+    for (let i = math.min; i <= math.max; i++) {
+        if (i === num) {
+            return true
+        }
+    }
+    return false;
 }
 
-console.log(isInRange(4, { min: 0, max: 5 })); //➞ true
-console.log(isInRange(4, { min: 4, max: 5 })); //➞ true
-console.log(isInRange(4, { min: 6, max: 10 }));  //➞ false
-console.log(isInRange(5, { min: 5, max: 5 })); //➞ true
+// console.log(isInRange(4, { min: 0, max: 5 })); //➞ true
+// console.log(isInRange(4, { min: 4, max: 5 })); //➞ true
+// console.log(isInRange(4, { min: 6, max: 10 }));  //➞ false
+// console.log(isInRange(5, { min: 5, max: 5 })); //➞ true
+
+
+
+// 15 Burglary Series (07): Make a Copy
+// Your spouse wants a copy of the stolen items. Given an object containing the stolen items, return a copy of that list.
+
+// Examples
+// function copyStolenItems(item) {
+//     return Object.assign({}, item);
+// }
+
+function copyStolenItems(items) {
+    return { ...items };
+}
+
+let stolenItem = { piano: 100, tv: 50 }
+// console.log(copyStolenItems(stolenItem)); //➞ { piano: 100, tv: 50 }
+
