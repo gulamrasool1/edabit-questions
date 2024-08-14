@@ -79,10 +79,60 @@ function toArray(obj) {
 // Examples 
 
 function concat(...arr) {
-    return [].concat(...arr);
+    // return [].concat(...arr);
+
+    return arr.reduce((acc, item) => acc.concat(item));
 }
 
-console.log(concat([1, 2, 3], [4, 5], [6, 7]));  //➞ [1, 2, 3, 4, 5, 6, 7] 
-console.log(concat([1], [2], [3], [4], [5], [6], [7]));  //➞ [1, 2, 3, 4, 5, 6, 7] 
-console.log(concat([1, 2], [3, 4]));  //➞ [1, 2, 3, 4] 
-console.log(concat([4, 4, 4, 4, 4]));  //➞ [4, 4, 4, 4, 4]
+// function concat(...arr) {
+//     let result = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         result.push(...arr[i])
+//     }
+//     return result
+// }
+
+// console.log(concat([1, 2, 3], [4, 5], [6, 7]));  //➞ [1, 2, 3, 4, 5, 6, 7] 
+// console.log(concat([1], [2], [3], [4], [5], [6], [7]));  //➞ [1, 2, 3, 4, 5, 6, 7] 
+// console.log(concat([1, 2], [3, 4]));  //➞ [1, 2, 3, 4] 
+// console.log(concat([4, 4, 4, 4, 4]));  //➞ [4, 4, 4, 4, 4]
+
+
+
+// 5 Convenience Store
+// Given a total due and an array representing the amount of change in your pocket, determine whether or not you are able to pay for the item. Change will always be represented in the following order: quarters, dimes, nickels, pennies.
+
+// To illustrate: changeEnough([25, 20, 5, 0], 4.25) should yield true, since having 25 quarters, 20 dimes, 5 nickels and 0 pennies gives you 6.25 + 2 + .25 + 0 = 8.50.
+
+// Examples
+
+// function changeEnough(arr,num) {
+//     const total = arr[0] * 0.25 + arr[1] * 0.10 + arr[2] * 0.05 + arr[3] * 0.01;
+//     return total >= num;
+// }
+
+// function changeEnough(arr, num) {
+//     let value = [0.25, 0.10, 0.05, 0.01];
+//     let total = arr.reduce((acc, item, index) => acc + item * value[index],0);
+//     return total >= num;
+// }
+
+function changeEnough(arr, num) {
+    const quarterValue = arr[0] * 0.25;
+    const dimeValue = arr[1] * 0.10;
+    const nickelValue = arr[2] * 0.05;
+    const pennyValue = arr[3] * 0.01;
+
+    const total = quarterValue + dimeValue + nickelValue + pennyValue;
+
+    if (total >= num) {
+        return true;
+    }
+    return false;
+}
+
+// console.log(changeEnough([2, 100, 0, 0], 14.11));  //➞ false
+// console.log(changeEnough([0, 0, 20, 5], 0.75));  //➞ true
+// console.log(changeEnough([30, 40, 20, 5], 12.55));  //➞ true
+// console.log(changeEnough([10, 0, 0, 50], 3.85));  //➞ false
+// console.log(changeEnough([1, 0, 5, 219], 19.99));  //➞ false
