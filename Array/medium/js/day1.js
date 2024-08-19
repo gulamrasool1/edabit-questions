@@ -4,8 +4,8 @@
 // Examples
 
 // function countTrue(arr) {
-    // return arr.filter(Boolean).length;
-    // return arr.reduce((count, value) => count + (value === true ? 1 : 0),0) 
+// return arr.filter(Boolean).length;
+// return arr.reduce((count, value) => count + (value === true ? 1 : 0),0) 
 // }
 
 function countTrue(arr) {
@@ -41,7 +41,7 @@ function compact(arr) {
         if (Boolean(arr[i])) {
             result.push(arr[i])
         }
-    }    
+    }
     return result;
 }
 
@@ -62,7 +62,7 @@ function toArray(obj) {
     let result = [];
     let keys = Object.keys(obj);
     for (let i = 0; i < keys.length; i++) {
-        result.push([keys[i] ,obj[keys[i]]])
+        result.push([keys[i], obj[keys[i]]])
     }
     return result
 }
@@ -136,3 +136,109 @@ function changeEnough(arr, num) {
 // console.log(changeEnough([30, 40, 20, 5], 12.55));  //➞ true
 // console.log(changeEnough([10, 0, 0, 50], 3.85));  //➞ false
 // console.log(changeEnough([1, 0, 5, 219], 19.99));  //➞ false
+
+
+
+// 6 Array of Multiples
+// Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num until the array length reaches length.
+
+// Examples
+
+// function arrayOfMultiples(num1, num2) {
+//     let result = [];
+//     for (let i = 1; i <= num2; i++) {
+//         result.push(num1 * i)
+//     }
+//     return result;
+// }
+
+function arrayOfMultiples(num1, num2) {
+    return Array.from({ length: num2 }, (_, index) => num1 * (index + 1));
+}
+
+// console.log(arrayOfMultiples(7, 5));  //➞ [7, 14, 21, 28, 35]
+// console.log(arrayOfMultiples(12, 10));  //➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+// console.log(arrayOfMultiples(17, 6));  //➞ [17, 34, 51, 68, 85, 102]
+
+
+
+// 7 Convert Key, Values in an Object to Array
+// Write a function that converts an object into an array of keys and values.
+
+// Examples
+
+// function objectToArray(obj) {
+//     return Object.entries(obj)
+// }
+
+// function objectToArray(obj) {
+//     return Object.keys(obj).map(key => [key, obj[key]]);
+// }
+
+function objectToArray(obj) {
+    let keys = Object.keys(obj);
+    let result = [];
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        result.push([key, obj[key]])
+    }
+    return result;
+}
+
+// console.log(objectToArray({
+//   D: 1,
+//   B: 2,
+//   C: 3
+// }));  //➞ [["D", 1], ["B", 2], ["C", 3]]
+// console.log(objectToArray({
+//   likes: 2,
+//   dislikes: 3,
+//   followers: 10
+// }));  //➞ [["likes", 2], ["dislikes", 3], ["followers", 10]]
+
+
+
+// 8 Sort the Unsortable
+// In this challenge you will be given an array similar to the following:
+
+// [[3], 4, [2], [5], 1, 6]
+// In words, elements of the array are either an integer or an array containing a single integer. We humans can clearly see that this array can reasonably be sorted according to "the content of the elements" as:
+
+// [1, [2], [3], 4, [5], 6]
+// Create a function that, given an array similar to the above, sorts the array according to the "content of the elements".
+
+// Examples
+
+function sortIt(arr) {
+    return arr.sort()
+}
+
+// console.log(sortIt([4, 1, 3]));  //➞ [1, 3, 4]
+// console.log(sortIt([[4], [1], [3]]));  //➞ [[1], [3], [4]]
+// console.log(sortIt([4, [1], 3]));  //➞ [[1], 3, 4]
+// console.log(sortIt([[4], 1, [3]]));  //➞ [1, [3], [4]]
+// console.log(sortIt([[3], 4, [2], [5], 1, 6]));  //➞ [1, [2], [3], 4, [5], 6]
+
+
+
+// 9 Fix the Error: Flattening an Array
+// I'm trying to write a function to flatten an array of subarrays into one array. (Suppose I am unware there is a .flat() method in the Array prototype). In other words, I want to transform this: [[1, 2], [3, 4]] into [1, 2, 3, 4].
+
+// Here is my code:
+
+// function flatten(arr) {
+//   arr2 = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     arr2.concat(arr[i]);
+//   }
+//   return arr2;
+// }
+// But...it doesn't seem to be working! Fix my code so that it correctly flattens the array.
+
+// Examples
+console.log(flatten([[1, 2], [3, 4]]));  //➞ []
+// Expected: [1, 2, 3, 4]
+console.log(flatten([["a", "b"], ["c", "d"]]));  //➞ []
+// Expected: ["a", "b", "c", "d"]
+console.log(flatten([[true, false], [false, false]]));  //➞ []
+// Expected: [true, false, false, false]

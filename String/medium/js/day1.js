@@ -294,21 +294,21 @@
 
 // Examples
 
-function reverseAndNot(num) {
-    const str = num.toString()
-    const reverse = str.split("").reverse().join("")
-    const merge = reverse + str
-    return Number(merge);
-}
-
 // function reverseAndNot(num) {
-//     const str = num.toString();
-//     let reverse = "";
-//     for (let i = str.length -1; i >= 0; i--) {
-//         reverse += str[i]
-//     }
-//     return BigInt(reverse + str + "n")
+//     const str = num.toString()
+//     const reverse = str.split("").reverse().join("")
+//     const merge = reverse + str
+//     return BigInt(merge);
 // }
+
+function reverseAndNot(num) {
+    const str = num.toString();
+    let reverse = "";
+    for (let i = str.length -1; i >= 0; i--) {
+        reverse += str[i]
+    }
+    return BigInt(reverse + str)
+}
 
 console.log(reverseAndNot(123));  //➞ 321123
 console.log(reverseAndNot(152));  //➞ 251152
