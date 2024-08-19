@@ -236,9 +236,56 @@ function sortIt(arr) {
 // But...it doesn't seem to be working! Fix my code so that it correctly flattens the array.
 
 // Examples
-console.log(flatten([[1, 2], [3, 4]]));  //➞ []
+
+// function flatten(arr) {
+//     let result = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         result = result.concat(arr[i]);
+//     } 
+//     return result;
+// }
+
+function flatten(arr) {
+    return arr.reduce((acc, item) => acc.concat(item));
+}
+
+// console.log(flatten([[1, 2], [3, 4]]));  //➞ []
 // Expected: [1, 2, 3, 4]
-console.log(flatten([["a", "b"], ["c", "d"]]));  //➞ []
+// console.log(flatten([["a", "b"], ["c", "d"]]));  //➞ []
 // Expected: ["a", "b", "c", "d"]
-console.log(flatten([[true, false], [false, false]]));  //➞ []
+// console.log(flatten([[true, false], [false, false]]));  //➞ []
 // Expected: [true, false, false, false]
+
+
+
+// 10 Find the Second Largest Number
+// Create a function that takes an array of numbers and returns the second largest number.
+
+// Examples
+
+// function secondLargest(arr) {
+    // let max = Math.max(...arr);
+    // let filter = arr.filter(num => num !== max);
+    // return Math.max(...filter)
+
+//     let sorted = arr.sort((a, b) => b - a)
+//     return sorted[1];
+// }
+
+function secondLargest(arr) {
+    let first = -Infinity;
+    let second = -Infinity;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > first) {
+            second = first;
+            first = arr[i];
+        }else if (arr[i] > second && arr[i] < first) {
+            second = arr[i];
+        }
+    }
+    return second;
+}
+
+console.log(secondLargest([10, 40, 30, 20, 50]));  //➞ 40
+console.log(secondLargest([25, 143, 89, 13, 105]));  //➞ 105
+console.log(secondLargest([54, 23, 11, 17, 10]));  //➞ 23
