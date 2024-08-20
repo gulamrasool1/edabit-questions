@@ -283,12 +283,12 @@ function stolenItems(obj) {
     return total > 0 ? total : "Lucky you!";
 }
 
-// console.log(stolenItems({
-//   tv: 30,
-//   skate: 20,
-//   stereo: 50,
-// }));  //➞ 100
-// console.log(stolenItems({
-//   painting: 20000,
-// }));  //➞ 20000
-// console.log(stolenItems({}));  //➞ "Lucky you!"
+console.log(stolenItems({
+  tv: 30,
+  skate: 20,
+  stereo: 50,
+}));  //➞ 100
+console.log(stolenItems({
+  painting: 20000,
+}));  //➞ 20000
+console.log(stolenItems({}));  //➞ "Lucky you!"
