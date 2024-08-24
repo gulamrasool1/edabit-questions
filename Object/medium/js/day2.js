@@ -154,4 +154,4 @@ function tpChecker(obj) {
 
 console.log(tpChecker({ people: 4, tp: 1 }));  //➞ "Your TP will only last 2 days, buy more!"
 console.log(tpChecker({ people: 3, tp: 20 }));  //➞ "Your TP will last 58 days, no need to panic!"
-console.log(tpChecker({ people: 4, tp: 12 }));  //➞ "Your TP will last 26 days, no need to panic!"
+console.log(tpChecker({ people: 4, tp: 12 }));  //➞ "Yur TP will last 26 days, no need to panic!"
