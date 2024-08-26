@@ -289,7 +289,7 @@ function parseURL(url) {
     return {protocol, host, path};
 }
 
-console.log(parseURL("https://developer.mozilla.org/en-US/Web/JavaScript"));
+// console.log(parseURL("https://developer.mozilla.org/en-US/Web/JavaScript"));
 // returns ["https://developer.mozilla.org/en-US/Web/JavaScript", "https", "developer.mozilla.org", "en-US/Web/JavaScript"]
 
 // the protocol = https
