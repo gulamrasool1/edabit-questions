@@ -293,6 +293,6 @@ function parseURL(url) {
 // returns ["https://developer.mozilla.org/en-US/Web/JavaScript", "https", "developer.mozilla.org", "en-US/Web/JavaScript"]
 
 // the protocol = https
-// the host = developer.mozilla.org
+// the host = developer.mozilla.orga=
 // the path = en-US/Web/JavaScript
 // From the parsedURL result you could assign these segments using ES6 array destructuring.
