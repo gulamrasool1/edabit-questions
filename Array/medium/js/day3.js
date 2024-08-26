@@ -249,18 +249,50 @@ function factorChain(arr) {
 
 // Examples
 
+// function progressDays(arr) {
+//     let result = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] > arr[i -1]) {
+//             result++
+//         }
+//     }
+//     return result;
+// }
+
 function progressDays(arr) {
-    let result = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > arr[i -1]) {
-            result++
-        }
-    }
-    return result;
+    // return arr.reduce((acc, item, value) => {
+    //     if (value > 0 && item > arr[value - 1]) {
+    //         acc++
+    //     }
+    //     return acc;
+    // }, 0)
+
+    return arr.filter((acc, item) => item > 0 && acc > arr[item - 1]).length;
 }
 
-console.log(progressDays([3, 4, 1, 2]));  //➞ 2
-// There are two progress days, (3->4) and (1->2)
-console.log(progressDays([10, 11, 12, 9, 10]));  //➞ 3
-console.log(progressDays([6, 5, 4, 3, 2, 9]));  //➞ 1
-console.log(progressDays([9, 9]));  //➞ 0
+// console.log(progressDays([3, 4, 1, 2]));  //➞ 2
+// // There are two progress days, (3->4) and (1->2)
+// console.log(progressDays([10, 11, 12, 9, 10]));  //➞ 3
+// console.log(progressDays([6, 5, 4, 3, 2, 9]));  //➞ 1
+// console.log(progressDays([9, 9]));  //➞ 0
+
+
+
+// 30 ES6: Destructuring Arrays V
+// ES6 Destructuring can come in handy when you use regular expressions. Here is a function that uses a regular expression to parse a URL.
+
+// const parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url)
+
+function parseURL(url) {
+    const parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url);
+    const [, protocol, host, path] = parsedURL;
+    return {protocol, host, path};
+}
+
+console.log(parseURL("https://developer.mozilla.org/en-US/Web/JavaScript"));
+// returns ["https://developer.mozilla.org/en-US/Web/JavaScript", "https", "developer.mozilla.org", "en-US/Web/JavaScript"]
+
+// the protocol = https
+// the host = developer.mozilla.org
+// the path = en-US/Web/JavaScript
+// From the parsedURL result you could assign these segments using ES6 array destructuring.
