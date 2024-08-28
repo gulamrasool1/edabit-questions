@@ -316,15 +316,19 @@ function validateBinary(str) {
 
 // Examples
 
-function reverse(str) {
-    // return str.split(" ").map(word => word
-    //     .length >= 5 ? word.split("").reverse().join("") : word).join(" ");
+// function reverse(str) {
+// return str.split(" ").map(word => word
+//     .length >= 5 ? word.split("").reverse().join("") : word).join(" ");
+// }
 
-    let spli = str.split(" ")
-    if (spli.length <= 5) {
-        return str
+function reverse(str) {
+    let word = str.split(" ");
+    for (let i = 0; i < word.length; i++) {
+        if (word[i].length >= 5) {
+            word[i] = word[i].split("").reverse().join("")
+        }
     }
-    return str.split(" ").map(word => word.split("").reverse().join("")).join(" ")
+    return word.join(" ");
 }
 
 console.log(reverse("Reverse"));  //➞ "esreveR"
