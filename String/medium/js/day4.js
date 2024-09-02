@@ -297,11 +297,11 @@ function boomIntensity(num) {
     if (num < 2) {
         return "boom"
     }
-    let boom = "B" + "o".repeat(num) + "m"
-    if (num % 2 === 0 && !num % 5 === 0) {
+    let boom = "B" + "o".repeat(num) + "m";
+    if (num % 2 === 0 && num % 5 !== 0) {
         return boom += "!"
-    }else if (num % 5 === 0 && num % 5 === 0) {
-        boom = boom.toUpperCase();
+    }else if (num % 5 === 0) {
+        return boom.toUpperCase();
     }
     return boom;
 }
