@@ -192,10 +192,10 @@ function dashed(str) {
 // Examples
 
 // function fracRound(frac, n) {
-    // let [numerator, denominator] = frac.split('/').map(Number);
-    // let decimal = numerator / denominator;
-    // let rounded = decimal.toFixed(n);
-    // return `${frac} rounded to ${n} decimal places is ${rounded}`;
+// let [numerator, denominator] = frac.split('/').map(Number);
+// let decimal = numerator / denominator;
+// let rounded = decimal.toFixed(n);
+// return `${frac} rounded to ${n} decimal places is ${rounded}`;
 // }
 
 function fracRound(frac, n) {
@@ -221,8 +221,8 @@ function reverse(str) {
     for (let i = 0; i < reverse.length; i++) {
         let char = reverse[i];
         if (char === char.toUpperCase()) {
-            result += char.toLowerCase(); 
-        }else{
+            result += char.toLowerCase();
+        } else {
             result += char.toUpperCase();
         }
     }
@@ -261,11 +261,80 @@ function hasSyncopation(str) {
     }).includes(true);
 }
 
-console.log(hasSyncopation(".#.#.#.#"));  //➞ true
-// There are Hash signs in the second, fourth, sixth and
-// eighth positions of the string.
-console.log(hasSyncopation("#.#...#."));  //➞ false
-// There are no Hash signs in the second, fourth, sixth or
-// eighth positions of the string.
-console.log(hasSyncopation("#.#.###."));  //➞ true
+// console.log(hasSyncopation(".#.#.#.#"));  //➞ true
+// // There are Hash signs in the second, fourth, sixth and
+// // eighth positions of the string.
+// console.log(hasSyncopation("#.#...#."));  //➞ false
+// // There are no Hash signs in the second, fourth, sixth or
+// // eighth positions of the string.
+// console.log(hasSyncopation("#.#.###."));  //➞ true
 // There is a Hash sign in the sixth position of the string.
+
+
+
+// 49 Find Unique Character Strings
+// Create a function that returns only strings with unique characters.
+
+// Examples
+
+// function filterUnique(arr) {
+//     return arr.filter(str => new Set(str).size === str.length)
+// }
+
+function filterUnique(arr) {
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+        let str = arr[i];
+        let isUnique = true;
+        for (let j = 0; j < str.length; j++) {
+            if (str.indexOf(str[j]) !== str.lastIndexOf(str[j])) {
+                isUnique = false;
+                break;
+            }
+        }
+        if (isUnique) {
+            res.push(str);
+        }
+    }
+    return res
+}
+
+// console.log(filterUnique(["abb", "abc", "abcdb", "aea", "bbb"]));  //➞ ["abc"]
+// // "b" occurs in "abb" more than once, "b" occurs in "abcdb" more than once, etc.
+// console.log(filterUnique(["88", "999", "989", "9988", "9898"]));  //➞ []
+// console.log(filterUnique(["ABCDE", "DDEB", "BED", "CCA", "BAC"]));  //➞ ["ABCDE", "BED", "BAC"]
+
+
+
+// 50 Transcribe to mRNA
+// Transcribe the given DNA strand into corresponding mRNA - a type of RNA, that will be formed from DNA after transcription. DNA has the bases A, T, G and C, while RNA converts to U, A, C and G respectively.
+
+// Examples
+
+// function dnaToRna(str) {
+//     return str
+//         .replace(/A/g, "U")
+//         .replace(/T/g, "A")
+//         .replace(/G/g, "C")
+//         .replace(/C/g, "G")
+// }
+
+function dnaToRna(str) {
+    let rna = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === 'A') {
+            rna += 'U';
+        }else if (str[i] === 'T') {
+            rna += 'A'
+        }else if (str[i] === 'G') {
+            rna += 'C'
+        }else if (str[i] === 'C') {
+            rna += 'G'
+        }
+    }
+    return rna
+}
+
+console.log(dnaToRna("ATTAGCGCGATATACGCGTAC"));  //➞ "UAAUCGCGCUAUAUGCGCAUG"
+console.log(dnaToRna("CGATATA"));  //➞ "GCUAUAU"
+console.log(dnaToRna("GTCATACGACGTA"));  //➞ "CAGUAUGCUGCAU"
