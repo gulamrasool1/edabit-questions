@@ -57,15 +57,15 @@ function evenOrOdd(str) {
         let value = Number(str[i]);
         if (value % 2 === 0) {
             even += value;
-        }else {
+        } else {
             odd += value;
         }
     }
     if (even === odd) {
         return "Even and Odd are the same";
-    }else if (even > odd) {
+    } else if (even > odd) {
         return "Even is greater than Odd";
-    }else{
+    } else {
         return "Odd is greater than Even";
     }
 }
@@ -129,7 +129,7 @@ function challenge5(str) {
 //     }
 
 //     let value = str[0].toUpperCase() + str.slice(1).toLowerCase();
-    // return `${value}, whispered Edabit.`;
+// return `${value}, whispered Edabit.`;
 //     return '"' + value + '", whispered Edabit.';
 // }
 
@@ -164,6 +164,144 @@ function clearFog(str) {
     return result;
 }
 
-console.log(clearFog("sky"));  //➞ "It's a clear day!"
-console.log(clearFog("fogfogFFfoooofftogffreogffesGgfOogfog"));  //➞ "trees"
-console.log(clearFog("fogFogFogffoObirdsanffodthebffoeffoesGGGfOgFog"));  //➞ "birdsandthebees"
+// console.log(clearFog("sky"));  //➞ "It's a clear day!"
+// console.log(clearFog("fogfogFFfoooofftogffreogffesGgfOogfog"));  //➞ "trees"
+// console.log(clearFog("fogFogFogffoObirdsanffodthebffoeffoesGGGfOgFog"));  //➞ "birdsandthebees"
+
+
+
+// 56 Vowel Sandwich
+// Create a function which validates whether a 3 character string is a vowel sandwich. In order to have a valid sandwich, the string must satisfy the following rules:
+
+// The first and last characters must be a consonant.
+// The character in the middle must be a vowel.
+
+// Examples
+
+function isVowelSandwich(str) {
+    if (str.length !== 3) {
+        return false;
+    }
+
+    let vowels = "aeiou";
+    let isConsonant = char => !vowels.includes(char.toLowerCase());
+    let isVowel = char => vowels.includes(char.toLowerCase());
+    return isConsonant(str[0]) && isVowel(str[1]) && isConsonant(str[2]);
+}
+
+// console.log(isVowelSandwich("cat"));  //➞ true
+// console.log(isVowelSandwich("ear"));  //➞ false
+// console.log(isVowelSandwich("bake"));  //➞ false
+// console.log(isVowelSandwich("try"));  //➞ false
+
+
+
+// 57 Length of Worm
+// Given a string worm create a function that takes the length of the worm and converts it into millimeters. Each - represents one centimeter.
+
+// Examples
+
+// function wormLength(str) {
+//     if (str === "" || !/^-+$/.test(str)) {
+//         return "invalid"
+//     }
+//     return `${str.length * 10} mm.`;
+// }
+
+function wormLength(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== '-') {
+            return "invalid"
+        }
+    }
+    return str.length === 0 ? "invalid" : `${str.length * 10} mm.`;
+}
+
+// console.log(wormLength("----------"));  //➞ "100 mm."
+// console.log(wormLength(""));  //➞ "invalid"
+// console.log(wormLength("---_-___---_"));  //➞ "invalid"
+
+
+
+// 58 Back to Home?
+// Mubashir has started his journey from home. Given a string of directions (N=North, W=West, S=South, E=East), he will walk for one minute in each direction. Determine whether a set of directions will lead him back to the starting position or not.
+
+// Examples
+
+function backToHome(str) {
+    let vertical = 0;
+    let horizontal = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === "N") {
+            vertical++
+        } else if (str[i] === "S") {
+            vertical--
+        } else if (str[i] === "E") {
+            horizontal++
+        } else if (str[i] === "W") {
+            horizontal--
+        }
+    }
+
+    return vertical === 0 && horizontal === 0;
+}
+
+// console.log(backToHome("EEWE"));  //➞ false
+// console.log(backToHome("NENESSWW"));  //➞ true
+// console.log(backToHome("NEESSW"));  //➞ false
+
+
+
+// 59 Is the Phone Number Formatted Correctly?
+// Create a function that accepts a string and returns true if it's in the format of a proper phone number and false if it's not. Assume any number between 0-9 (in the appropriate spots) will produce a valid phone number.
+
+// This is what a valid phone number looks like:
+
+// (123) 456-7890
+
+// Examples
+
+function isValidPhoneNumber(str) {
+    return str.length === 14 &&
+           str[0] === '(' &&
+           str[4] === ')' &&
+           str[5] === ' ' && 
+           str[9] === '-' &&
+           !isNaN(str.slice(1, 4)) &&
+           !isNaN(str.slice(6, 9)) &&
+           !isNaN(str.slice(10));
+}
+
+// console.log(isValidPhoneNumber("(123) 456-7890"));  //➞ true
+// console.log(isValidPhoneNumber("1111)555 2345"));  //➞ false
+// console.log(isValidPhoneNumber("098) 123 4567"));  //➞ false
+
+
+
+// 60 Running Athlete 🏃
+// No description.
+// Guess the code from test cases.
+// Examples
+
+function runningAthlete(act, txt) {
+    let result = txt.split('');
+    for (let i = 0; i < act.length; i++) {
+        if (act[i] === 'run') {
+            if (result[i] === '|') {
+                result[i] = '/'
+            }
+        }else if (act[i] === "jump") {
+            if (result[i] === '|') {
+                result[i] = '|'
+            } else {
+                result[i] = 'x'
+            }
+        }
+    }
+    return result.join('');
+}
+
+console.log(runningAthlete(["run", "jump", "run", "jump", "run"], "_|_|_"));  //➞ "_|_|_"
+console.log(runningAthlete(["run", "jump", "run", "run", "run"], "_|_|_"));  //➞ "_|_/_"
+console.log(runningAthlete(["jump", "jump", "jump", "jump", "jump"], "_|_|_"));  //➞ "x|x|x"
+console.log(runningAthlete(["run", "run", "run", "run", "run"], "_|_|_"));  //➞ "_/_/_"
