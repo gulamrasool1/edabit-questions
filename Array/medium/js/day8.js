@@ -136,7 +136,60 @@ function nextInLine(arr, num) {
     return result;
 }
 
-console.log(nextInLine([5, 6, 7, 8, 9], 1));  //➞ [6, 7, 8, 9, 1]
-console.log(nextInLine([7, 6, 3, 23, 17], 10));  //➞ [6, 3, 23, 17, 10]
-console.log(nextInLine([1, 10, 20, 42], 6));  //➞ [10, 20, 42, 6]
-console.log(nextInLine([], 6));  //➞ "No array has been selected"
+// console.log(nextInLine([5, 6, 7, 8, 9], 1));  //➞ [6, 7, 8, 9, 1]
+// console.log(nextInLine([7, 6, 3, 23, 17], 10));  //➞ [6, 3, 23, 17, 10]
+// console.log(nextInLine([1, 10, 20, 42], 6));  //➞ [10, 20, 42, 6]
+// console.log(nextInLine([], 6));  //➞ "No array has been selected"
+
+
+
+// 75 Switcharoo
+// Create a function that takes a string and returns a new string with its first and last characters swapped, except under three conditions:
+
+// If the length of the string is less than two, return "Incompatible.".
+// If the argument is not a string, return "Incompatible.".
+// If the first and last characters are the same, return "Two's a pair.".
+
+// Examples
+
+function flipEndChars(str) {
+    if (str.length < 2) {
+        return "Incompatible.";
+    } else if (typeof str !== "string") {
+        return "Incompatible."
+    } else if (str[0] === str[str.length - 1]) {
+        return "Two's a pair.";
+    }
+
+    return str[str.length - 1] + str.slice(1, -1) + str[0];
+}
+
+// console.log(flipEndChars("Cat, dog, and mouse."));  //➞ ".at, dog, and mouseC"
+// console.log(flipEndChars("ada"));  //➞ "Two's a pair."
+// console.log(flipEndChars("Ada"));  //➞ "adA"
+// console.log(flipEndChars("z"));  //➞ "Incompatible."
+// console.log(flipEndChars([1, 2, 3]));  //➞ "Incompatible."
+
+
+
+// 76 Fruit Salad 🍇🍓🍎
+// Fruit salads are served best when the fruits are sliced and diced into small chunks!
+
+// For this challenge, slice each fruit in half and sort the chunks alphabetically. This recipe tastes best when the chunks are joined together to make a string.
+
+// Worked Example
+// fruitSalad(["apple", "pear", "grapes"]) ➞ "apargrapepesple"
+
+// // Chunks: ["ap", "ple", "pe", "ar", "gra", "pes"]
+// // Sorted chunks: ["ap", "ar", "gra", "pe", "pes", "ple"]
+// // Final string: "apargrapepesple"
+
+// Examples
+
+function fruitSalad(arr) {
+    
+}
+
+console.log(fruitSalad(["apple", "pear", "grapes"]));  //➞ "apargrapepesple"
+console.log(fruitSalad(["raspberries", "mango"]));  //➞ "erriesmangoraspb"
+console.log(fruitSalad(["banana"]));  //➞ "anaban"
