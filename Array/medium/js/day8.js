@@ -186,26 +186,15 @@ function flipEndChars(str) {
 
 // Examples
 
-// function fruitSalad(arr) {
-//     let result = [];
-//     for (let i = 0; i < arr.length; i++) {
-//         let fruit = arr[i];
-//         let mid = Math.ceil(fruit.length / 2);
-//         result.push(fruit.slice(0, mid));
-//         result.push(fruit.slice(mid));
-//     }
-//     return result.sort().join("");
-// }
-
 function fruitSalad(arr) {
-    // Step 1: Use map to split each fruit into two halves and flatten the result into a single array
-    let result = arr.flatMap(fruit => {
-        let mid = Math.ceil(fruit.length / 2); // Calculate the midpoint
-        return [fruit.slice(0, mid), fruit.slice(mid)]; // Return two halves as an array
-    });
-
-    // Step 2: Sort the chunks alphabetically and join them into a string
-    return result.sort().join('');
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        let fruit = arr[i];
+        let mid = Math.ceil(fruit.length / 2);
+        result.push(fruit.slice(0, mid));
+        result.push(fruit.slice(mid));
+    }
+    return result.sort().join("");
 }
 
 console.log(fruitSalad(["apple", "pear", "grapes"]));  //➞ "apargrapepesple"
