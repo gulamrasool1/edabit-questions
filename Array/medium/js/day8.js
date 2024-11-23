@@ -190,13 +190,204 @@ function fruitSalad(arr) {
     let result = [];
     for (let i = 0; i < arr.length; i++) {
         let fruit = arr[i];
-        let mid = Math.ceil(fruit.length / 2);
+        let mid = Math.floor(fruit.length / 2);
         result.push(fruit.slice(0, mid));
         result.push(fruit.slice(mid));
     }
     return result.sort().join("");
 }
 
-console.log(fruitSalad(["apple", "pear", "grapes"]));  //➞ "apargrapepesple"
-console.log(fruitSalad(["raspberries", "mango"]));  //➞ "erriesmangoraspb"
-console.log(fruitSalad(["banana"]));  //➞ "anaban"
+// console.log(fruitSalad(["apple", "pear", "grapes"]));  //➞ "apargrapepesple"
+// console.log(fruitSalad(["raspberries", "mango"]));  //➞ "erriesmangoraspb"
+// console.log(fruitSalad(["banana"]));  //➞ "anaban"
+
+
+
+// 77 Return an Array of Subarrays
+// Write a function that takes three arguments (x, y, z) and returns an array containing x subarrays (e.g. [[], [], []]), each containing y number of item z.
+
+// x Number of subarrays contained within the main array.
+// y Number of items contained within each subarray.
+// z Item contained within each subarray.
+
+// Examples
+
+// function matrix(x, y, z) {
+//     let result = [];
+//     for (let i = 0; i < x; i++) {
+//         let subArray = []
+//         for (let i = 0; i < y; i++) {
+//             subArray.push(z);
+//         }
+//         result.push(subArray);
+//     }
+//     return result;
+// }
+
+function matrix(x, y, z) {
+    return Array(x).fill().map(() => Array(y).fill(z));
+}
+
+// console.log(matrix(3, 2, 3));  //➞ [[3, 3], [3, 3], [3, 3]]
+// console.log(matrix(2, 1, "edabit"));  //➞ [["edabit"], ["edabit"]]
+// console.log(matrix(3, 2, 0));  //➞ [[0, 0], [0, 0], [0, 0]]
+
+
+
+// 78 Puzzle Pieces
+// Write a function that takes two arrays and adds the first element in the first array with the first element in the second array, the second element in the first array with the second element in the second array, etc, etc. Return true if all element combinations add up to the same number. Otherwise, return false.
+
+// Examples
+
+// function puzzlePieces(arr1, arr2) {
+//     if (arr1.length !== arr2.length) {
+//         return false
+//     }
+//     return arr1.every((num, i) => num + arr2[i] === arr1[0] + arr2[0]);
+// }
+
+function puzzlePieces(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+        return false
+    }
+    let sum = arr1[0] + arr2[0];
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] + arr2[i] !== sum) {
+            return false
+        }
+    }
+    return true
+}
+
+// console.log(puzzlePieces([1, 2, 3, 4], [4, 3, 2, 1]));  //➞ true
+// 1 + 4 = 5;  2 + 3 = 5;  3 + 2 = 5;  4 + 1 = 5
+// Both arrays sum to [5, 5, 5, 5]
+// console.log(puzzlePieces([1, 8, 5, 0, -1, 7], [0, -7, -4, 1, 2, -6]));  //➞ true
+// console.log(puzzlePieces([1, 2], [-1, -1]));  //➞ false
+// console.log(puzzlePieces([9, 8, 7], [7, 8, 9, 10]));  //➞ false
+
+
+
+// 79 Flatten the Curve
+// Given an array of integers, replace every number with the mean of all numbers.
+
+// Examples
+
+// function flattenCurve(arr) {
+//     if (arr.length === 0) {
+//         return []
+//     } 
+//     let sum = arr.reduce((sum, num) => sum + num);
+//     let divide = sum / arr.length
+//     return arr.map(() => divide);
+// }
+
+function flattenCurve(arr) {
+    if (arr.length === 0) {
+        return [];
+    }
+    let sum = arr.reduce((sum, num) => sum + num);
+    let divide = sum / arr.length
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(divide);
+    }
+    return result;
+}
+
+// console.log(flattenCurve([1, 2, 3, 4, 5]));  //➞ [3, 3, 3, 3, 3]
+// console.log(flattenCurve([0, 0, 0, 2, 7, 3]));  //➞ [2, 2, 2, 2, 2, 2]
+// console.log(flattenCurve([4]));  //➞ [4]
+// console.log(flattenCurve([]));  //➞ []
+
+
+
+// 80 Flick Switch
+// Create a function that always returns true for every item in a given array. However, if an element is the word "flick", switch to always returning the opposite boolean value.
+
+// Examples
+
+// function flickSwitch(arr) {
+//     let currentValue = true
+//     return arr.map((item) => {
+//         if (item === "flick") {
+//             currentValue = !currentValue
+//         }
+//         return currentValue;
+//     });
+// }
+
+function flickSwitch(arr) {
+    let currentValue = true;
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "flick") {
+            currentValue = !currentValue
+        }
+        result.push(currentValue);
+    }
+    return result;
+}
+
+
+console.log(flickSwitch(["edabit", "flick", "eda", "bit"]))  //➞ [true, false, false, false]
+console.log(flickSwitch(["flick", 11037, 3.14, 53]))  //➞ [false, false, false, false]
+console.log(flickSwitch([false, false, "flick", "sheep", "flick"]))  //➞ [true, true, false, false, true]
+
+
+// interview question
+
+//Ques 1
+//On line 8 what will be the value of obj1
+const obj1 = { a: 1, b: 2 };
+const obj2 = obj1;
+obj2.a = 4;
+// console.log(obj1);
+// Output
+// { a: 4, b: 2}
+
+
+//Ques 2
+//Write a function to conver this array of
+//object into single objet with key value pair
+const arr = [
+    { id: 1, name: "Bob" },
+    { id: 2, name: "Harry" },
+];
+
+// let result = arr.reduce((acc, obj) => {
+//     acc[obj.id] = obj.name;
+//     return acc
+// },{})
+// console.log(result);
+
+
+const result = {};
+for (let i = 0; i < arr.length; i++) {
+    result[arr[i].id] = arr[i].name;
+}
+// console.log(result);
+
+// Output
+// {'1': 'Bob', '2': 'Harry'}
+
+
+
+//Ques 3
+//Merge array of onbject arr1 and arr2 by
+//employee id, as mention in output below arrays
+const arr1 = [
+    { employeeId: 5, name: "Mark" },
+    { employeeId: 10, name: "Peter" },
+  ];
+  
+  const arr2 = [
+    { employeeCode: "emp101", employeeId: 10 },
+    { employeeCode: "emp102", employeeId: 5 },
+  ];
+  
+  // Output
+  // [
+  //  {"employeeId":10, employeeCode":"emp101", "name": "Peter"},
+  //  {"employeeId":5, employeeCode": "emp102", "name":"Mark"}
+  // ]
