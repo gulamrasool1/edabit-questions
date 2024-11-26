@@ -171,9 +171,119 @@ function canAlternate(str) {
     return Math.abs(count0 - count1) <= 1;
 }
 
-console.log(canAlternate("0001111"));  //➞ true
+// console.log(canAlternate("0001111"));  //➞ true
 // Can make: "1010101"
-console.log(canAlternate("01001"));  //➞ true
+// console.log(canAlternate("01001"));  //➞ true
 // Can make: "01010"
-console.log(canAlternate("010001"));  //➞ false
-console.log(canAlternate("1111"));  //➞ false
+// console.log(canAlternate("010001"));  //➞ false
+// console.log(canAlternate("1111"));  //➞ false
+
+
+
+// 76 Extending the String Prototype
+// Javascript has a String prototype default in the language which contains properties and methods such as .length and .toLowerCase(). Extend the String prototype by creating two new methods:
+
+// consonants(word) which returns the number of consonants in a word when called.
+// vowels(word) which returns the number of vowels in a word when called.
+
+// Examples
+
+function consonants() {
+    
+}
+
+// console.log("hello".consonants())  //➞ 3
+// console.log("hello".vowels())  //➞ 2
+// console.log("greatly".consonants())  //➞ 5
+// console.log("greatly".vowels())  //➞ 2
+// console.log("Smithsonian".consonants())  //➞ 7
+// console.log("Smithsonian".vowels())  //➞ 4
+
+
+
+// 77 Split Item Codes
+// You have an array of item codes with the following format: "[letters][digits]"
+
+// Create a function that splits these strings into their alphabetic and numeric parts.
+
+// Examples
+
+// function splitCode(str) {
+//     let letters = "";
+//     let numbers = "";
+//     for (let i = 0; i < str.length; i++) {
+//         if (isNaN(str[i])) {
+//             letters += str[i];
+//         } else {
+//             numbers += str[i];
+//         }
+//     }
+//     return [letters, parseInt(numbers)]
+// }
+
+function splitCode(str) {
+    let half = Math.floor(str.length / 2);
+    let letters = str.slice(0, half);
+    let numbers = str.slice(half)
+    return [letters, parseInt(numbers)]
+}
+
+// console.log(splitCode("TEWA8392"));  //➞ ["TEWA", 8392]
+// console.log(splitCode("MMU778"));  //➞ ["MMU", 778]
+// console.log(splitCode("SRPE5532"));  //➞ ["SRPE", 5532]
+
+
+
+// 78 Check if a String is a Mathematical Expression
+// Create a function that takes an input (e.g. "5 + 4") and returns true if it's a mathematical expression or false if not.
+
+// Examples
+
+function mathExpr(str) {
+    
+}
+
+// console.log(mathExpr("4 + 5"));  //➞ true
+// console.log(mathExpr("4*6"));  //➞ true
+// console.log(mathExpr("4*no"));  //➞ false
+
+
+
+// 79 Grab the Numbers
+// Given a string including a bunch of characters and numbers, return the sum of all the numbers in the string. Note that multiple digits next to each other are counted as a whole number rather than separate digits.
+
+// Examples
+
+function grabNumberSum(str) {
+    let numbers = str.match(/\d+/g);
+    return numbers.map(Number).reduce((sum, num) => sum + num, 0);
+}
+
+// console.log(grabNumberSum("aeiou250abc10"));  //➞ 260
+// console.log(grabNumberSum("one1two2twenty20"));  //➞ 23
+// console.log(grabNumberSum("900uwu50uwuuwuuwu25uwu25"));  //➞ 1000
+
+
+
+// 80 Censor Words Longer Than Four Characters
+// Create a function that takes a string and censors words over four characters with *.
+
+// Examples
+
+// function censor(str) {
+//     let splited = str.split(" ")
+//     for (let i = 0; i < splited.length; i++) {
+//         if (splited[i].length > 4) {
+//             splited[i] = "*".repeat(splited.length)
+//         }
+//     }
+//     return splited.join(" ")
+// }
+
+function censor(str) {
+    return str.split(" ").map(word => word.length > 4 ? "*".repeat(word.length) : word).join(" ")
+}
+
+console.log(censor("The code is fourty"));  //➞ "The code is ******"
+console.log(censor("Two plus three is five"));  //➞ "Two plus ***** is five"
+console.log(censor("aaaa aaaaa 1234 12345"));  //➞ "aaaa ***** 1234 *****"
