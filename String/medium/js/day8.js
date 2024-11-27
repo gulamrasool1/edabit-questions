@@ -188,10 +188,6 @@ function canAlternate(str) {
 
 // Examples
 
-function consonants() {
-    
-}
-
 // console.log("hello".consonants())  //➞ 3
 // console.log("hello".vowels())  //➞ 2
 // console.log("greatly".consonants())  //➞ 5
