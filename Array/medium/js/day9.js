@@ -227,6 +227,89 @@ function probability(arr, n) {
     return parseFloat(probability.toFixed(1));
 }
 
-console.log(probability([5, 1, 8, 9], 6));  //➞ 50.0
-console.log(probability([7, 4, 17, 14, 12, 3], 16));  //➞ 16.7
-console.log(probability([4, 6, 2, 9, 15, 18, 8, 2, 10, 8], 6));  //➞ 70.0
+// console.log(probability([5, 1, 8, 9], 6));  //➞ 50.0
+// console.log(probability([7, 4, 17, 14, 12, 3], 16));  //➞ 16.7
+// console.log(probability([4, 6, 2, 9, 15, 18, 8, 2, 10, 8], 6));  //➞ 70.0
+
+
+
+// 88 Is There an Upward Trend?
+// Create a function that determines if there is an upward trend.
+
+// Examples
+
+// function upwardTrend(arr) {
+//     if (arr.some(item => typeof item !== "number")){
+//         return "Strings not permitted!"
+//     }
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         if (arr[i] >= arr[i + 1]) {
+//             return false
+//         }
+//     }
+//     return true
+// }
+
+function upwardTrend(arr) {
+    if (!arr.every(item => typeof item === "number")) {
+        return "Strings not permitted!";
+    }
+
+    return arr.slice(0, -1).every((item, index) => item < arr[index + 1]);
+}
+
+// console.log(upwardTrend([1, 2, 3, 4]));  //➞ true
+// console.log(upwardTrend([1, 2, 6, 5, 7, 8]));  //➞ false
+// console.log(upwardTrend([1, 2, 3, "4"]));  //➞ "Strings not permitted!"
+// console.log(upwardTrend([1, 2, 3, 6, 7]));  //➞ true
+
+
+
+// 89 Simple Encoder
+// Create a function that takes a string str and performs simple encoding as per the following method:
+
+// Replace all single occurrence characters with [
+// Replace all characters with two or more occurrences with ]
+// Return the final string after modification.
+
+// Examples
+
+function simpleEncoder(str) {
+    const lowerStr = str.toLowerCase(); 
+    return lowerStr
+        .split("")
+        .map(char => lowerStr.split(char).length - 1 === 1 ? "[" : "]")
+        .join("");
+}
+
+// console.log(simpleEncoder("Mubashir"));  //➞ "[[[[[[[["
+// '[' for each character
+// console.log(simpleEncoder("Matt"));  //➞ "[[]]"
+// ']' for both 't'
+// console.log(simpleEncoder("eD  aBiT"));  //➞ "[[]][[[["
+// Two spaces in between
+
+
+
+// 90 Numbered Cards
+// You have a pack of 5 randomly numbered cards, which can range from 0-9. You can win if you can produce a higher two-digit number from your cards than your opponent. Return true if your cards win that round.
+
+// Examples
+
+function winRound(arr1, arr2) {
+    arr1.sort((a, b) => b - a);
+    arr2.sort((a, b) => b - a);
+
+    let num1 = arr1[0] * 10 + arr1[1];
+    let num2 = arr2[0] * 10 + arr2[1];
+    
+    return num1 > num2;
+}
+
+console.log(winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2]));  //➞ true
+// Your cards can make the number 96
+// Your opponent can make the number 73
+// You win the round since 96 > 73
+console.log(winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2]));  //➞ true
+console.log(winRound([1, 2, 3, 4, 5], [9, 8, 7, 6, 5]));  //➞ false
+console.log(winRound([4, 3, 4, 4, 5], [3, 2, 5, 4, 1]));  //➞ false
