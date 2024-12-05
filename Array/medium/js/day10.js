@@ -169,13 +169,149 @@ function pingPong(arr, win) {
     let compare = arr.reduce((acc, cur) => {
         acc.push(cur, "Pong!");
         return acc;
-    },[]);
+    }, []);
     if (!win) {
-        compare.pop()
+        compare.pop();
     }
-    return compare
+    return compare;
 }
 
-console.log(pingPong(["Ping!"], true));  //➞ ["Ping!", "Pong!"]
-console.log(pingPong(["Ping!", "Ping!"], false));  //➞ ["Ping!", "Pong!", "Ping!"]
-console.log(pingPong(["Ping!", "Ping!", "Ping!"], true));  //➞ ["Ping!", "Pong!", "Ping!", "Pong!", "Ping!", "Pong!"]
+// console.log(pingPong(["Ping!"], true));  //➞ ["Ping!", "Pong!"]
+// console.log(pingPong(["Ping!", "Ping!"], false));  //➞ ["Ping!", "Pong!", "Ping!"]
+// console.log(pingPong(["Ping!", "Ping!", "Ping!"], true));  //➞ ["Ping!", "Pong!", "Ping!", "Pong!", "Ping!", "Pong!"]
+
+
+
+// 96 Numbers to Objects
+// Mubashir needs your help in a simple task.
+
+// Given an array of numbers arr:
+
+// Create an object for each given number.
+// The object key will be the number converted to a string.
+// The value will be the corresponding character code converted to a string (check ASCII table).
+// Return an array of the resulting objects.
+
+// Examples
+
+// function numObj(arr) {
+//     return arr.map(num => {
+//         return { [num]: String.fromCharCode(num) };
+//     });
+// }
+
+function numObj(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        let obj = {};
+        obj[arr[i]] = String.fromCharCode(arr[i]);
+        result.push(obj);
+    }
+    return result;
+}
+
+// console.log(numObj([118, 117, 120]));  //➞ [{'118':'v'}, {'117':'u'}, {'120':'x'}]
+// console.log(numObj([101, 121, 110, 113, 103]));  //➞ [{'101':'e'}, {'121':'y'}, {'110':'n'}, {'113':'q'}, {'103':'g'}]
+// console.log(numObj([118, 103, 110]));  //➞ [{"118":"v"}, {"103":"g"}, {"110":"n"}]
+
+
+
+// 97 Pyramid Arrays
+// Given a number n, return an array containing several arrays. Each array increments in size, from range 1 to n inclusive, contaning its length as the elements.
+
+// Examples
+
+function pyramidArrays(num) {
+    // let result = [];
+    // for (let i = 1; i <= num; i++) {
+    //     let subArray = [];
+    //     for (let j = 0; j < i; j++) {
+    //         subArray.push(i);
+    //     }
+    //     result.push(subArray);
+    // }
+    // return result;
+
+    let result = [];
+    for (let i = 1; i <= num; i++) {
+        result.push(Array(i).fill(i));
+    }
+    return result;
+}
+
+// console.log(pyramidArrays(1));  //➞ [[1]]
+// console.log(pyramidArrays(3));  //➞ [[1], [2, 2], [3, 3, 3]]
+// console.log(pyramidArrays(5));  //➞ [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5, 5]]
+
+
+
+// 98 Longest Word
+// Write a function that finds the longest word in a sentence and returns it. If two or more words are the biggest, return the word closest to the start of the sentence. Characters such as apostrophe, commas, periods, etc count as letters (e.g. O'Connor is 8 characters long).
+
+// Examples
+
+// function longestWord(str) {
+//     let splited = str.split(" ");
+//     let result = '';
+//     for (let i = 0; i < splited.length; i++) {
+//         if (splited[i].length > result.length) {
+//             result = splited[i]
+//         }
+//     }
+//     return result;
+// }
+
+function longestWord(str) {
+    let splited = str.split(' ');
+    let longest = splited.reduce((long, curr) => {
+        return curr.length > long.length ? curr : long;
+    }, '');
+    return longest;
+}
+
+// console.log(longestWord("Hello darkness my old friend"));  //➞ "darkness"
+// console.log(longestWord("Hello there mate"));  //➞ "Hello"
+// console.log(longestWord("Kayla's toy is plastic"));  //➞ "Kayla's"
+
+
+
+// 99 String Match by Two Letters
+// Create a function that takes two strings, a and b. Return the number of times the two strings contain the same two letters at the same index. The two letters must appear at consecutive indices.
+
+// For example, if a = "bboiizz" and b = "bbuiiz", your function should return 3, since the "bb", "ii", and "iz" appear at the same place in both strings.
+
+// Examples
+
+function strMatchBy2char(a, b) {
+    let count = 0;
+    for (let i = 0; i < Math.min(a.length, b.length); i++) {
+        if (a[i] === b[i] && a[i + 1] === b[i + 1]) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// console.log(strMatchBy2char("yytaazz", "yyjaaz"));  //➞ 3
+// console.log(strMatchBy2char("edabit", "ed"));  //➞ 1
+// console.log(strMatchBy2char("", ""));  //➞ 0
+
+
+
+//  100 Superheroes
+// Create a function that takes an array of console.log(superheroes / superheroines names and returns an array of only superheroe names ending in "man". Return the names in alphabetical order.
+
+// Examples
+
+function superheroes(arr) {
+    return arr.filter(name => name.toLowerCase().endsWith("man"));
+}
+
+console.log(superheroes(["Batman", "Superman", "Spider-man", "Hulk", "Wolverine", "Wonder-Woman"]));
+//➞ ["Batman", "Spider-man", "Superman"]
+
+console.log(superheroes(["Catwoman", "Deadpool", "Dr.Strange", "Captain-America", "Aquaman", "Hawkeye"]));
+//➞ ["Aquaman"]
+
+console.log(superheroes(["Wonder-Woman", "Catwoman", "Invisible-Woman"]));
+//➞ []
