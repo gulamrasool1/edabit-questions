@@ -28,4 +28,4 @@ function isPalindrome(str) {
 
 console.log(isPalindrome("Neuquen"));  //➞ true
 console.log(isPalindrome("Not a palindrome"));  //➞ false
-console.log(isPalindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!"));  //➞ true.
+console.log(isPalindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!"));  //➞ true
