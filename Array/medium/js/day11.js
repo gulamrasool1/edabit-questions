@@ -232,16 +232,162 @@ function countNumber(arr) {
 
     for (let i = 0; i < arr.length; i++) {
         if (Array.isArray(arr[i])) {
-            count += countNumber(arr[i])
+            count += countNumber(arr[i]);
         } else if (typeof arr[i] === 'number') {
-            count++
+            count++;
         }
     }
     return count;
 }
 
-console.log(countNumber([["", 17.2, 5, "edabit"]]));  //➞ 2
+// console.log(countNumber([["", 17.2, 5, "edabit"]]));  //➞ 2
 // 17.2 and 5.
-console.log(countNumber([[[[[2, 14]]], 2, 3, 4]]));  //➞ 5
+// console.log(countNumber([[[[[2, 14]]], 2, 3, 4]]));  //➞ 5
 // 2, 14, 2, 3 and 4.
-console.log(countNumber([["balkot"]]));  //➞ 0
+// console.log(countNumber([["balkot"]]));  //➞ 0
+
+
+
+// 108 Edabit Experience Points
+// As you complete questions on Edabit, you gain experience points depending on the difficulty of the question. The points for each difficulty are as follows:
+
+// Difficulty	Experience Points
+// Very Easy	5XP
+// Easy	10XP
+// Medium	20XP
+// Hard	40XP
+// Very Hard	80XP
+// Given an object of how many questions a person has completed of each difficulty, return how many experience points they'll have.
+
+// Examples
+
+// function getXP(obj) {
+//     let experiencePoints = {
+//         "Very Easy": 5,
+//         "Easy": 10,
+//         "Medium": 20,
+//         "Hard": 40,
+//         "Very Hard": 80
+//     };
+
+//     let total = 0;
+//     let keys = Object.keys(obj);
+//     for (let i = 0; i < keys.length; i++) {
+//         total += obj[keys[i]] * experiencePoints[keys[i]];
+//     }
+//     return total + "XP";
+//     // return values
+//     // let veryEasy = 89 * 5;
+//     // let easy = 77 * 10;
+//     // let medium = 30 * 20;
+//     // let hard = 40 * 4;
+//     // let veryHard = 80 * 1;
+//     // return veryEasy + easy + medium + hard + veryHard;
+// }
+
+function getXP(obj) {
+    let experiencePoints = {
+        "Very Easy": 5,
+        "Easy": 10,
+        "Medium": 20,
+        "Hard": 40,
+        "Very Hard": 80
+    };
+
+    let total = Object.keys(obj).reduce((sum, item) => sum + obj[item] * experiencePoints[item], 0);
+
+    return total + "XP";
+}
+
+// console.log(getXP({
+//     "Very Easy": 89,
+//     "Easy": 77,
+//     "Medium": 30,
+//     "Hard": 4,
+//     "Very Hard": 1
+// }));  //➞ "2055XP"
+// console.log(getXP({
+//     "Very Easy": 254,
+//     "Easy": 32,
+//     "Medium": 65,
+//     "Hard": 51,
+//     "Very Hard": 34
+// }));  //➞ "7650XP"
+// console.log(getXP({
+//     "Very Easy": 11,
+//     "Easy": 0,
+//     "Medium": 2,
+//     "Hard": 0,
+//     "Very Hard": 27
+// }));  //➞ "2255XP"
+
+
+
+// 109 Stalactites or Stalagmites?
+// Stalactites hang from the ceiling of a cave while stalagmites grow from the floor.
+
+// Create a function that determines whether the input represents "stalactites" or "stalagmites". If it represents both, return "both". Input will be a 2D array, with 1 representing a piece of rock, and 0 representing air space.
+
+// Examples
+
+function mineralFormation(arr) {
+    let firstArr = arr[0];
+    let lastArr = arr[arr.length - 1];
+    let Stalactites = firstArr.includes(1);
+    let Stalagmites = lastArr.includes(1);
+
+    if (Stalactites && Stalagmites) {
+        return "both";
+    } else if (Stalactites) {
+        return "stalactites";
+    } else if (Stalagmites) {
+        return "stalagmites";
+    }
+}
+
+// console.log(mineralFormation([
+//   [0, 1, 0, 1],
+//   [0, 1, 0, 1],
+//   [0, 0, 0, 1],
+//   [0, 0, 0, 0]
+// ]));  //➞ "stalactites"
+// console.log(mineralFormation([
+//   [0, 0, 0, 0],
+//   [0, 1, 0, 1],
+//   [0, 1, 1, 1],
+//   [0, 1, 1, 1]
+// ]));  //➞ "stalagmites"
+// console.log(mineralFormation([
+//   [1, 0, 1, 0],
+//   [1, 1, 0, 1],
+//   [0, 1, 1, 1],
+//   [0, 1, 1, 1]
+// ]));  //➞ "both"
+
+
+
+// 110 Array Multiplier
+// Create a function that takes an array as an argument and returns a new nested array for each element in the original array. The nested array must be filled with the corresponding element (string or number) in the original array and each nested array has the same amount of elements as the original array.
+
+// Examples
+
+// function multiply(arr) {
+// let length = arr.length;
+// return arr.map(elem => Array(length).fill(elem));   
+// }
+
+function multiply(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        let nestedArr = [];
+        for (let j = 0; j < arr.length; j++) {
+            nestedArr.push(arr[i]);
+        }
+        result.push(nestedArr);
+    }
+    return result;
+}
+
+console.log(multiply([4, 5]));  //➞ [[4, 4], [5, 5]]
+console.log(multiply(["*", "%", "$"]));  //➞ [["*", "*", "*"], ["%", "%", "%"], ["$", "$", "$"]]
+console.log(multiply(["A", "B", "C", "D", "E"]));  //➞ [["A", "A", "A", "A", "A"], ["B", "B", "B", "B", "B"], ["C", "C", "C", "C", "C"], ["D", "D", "D", "D", "D"], ["E", "E", "E", "E", "E"]]
