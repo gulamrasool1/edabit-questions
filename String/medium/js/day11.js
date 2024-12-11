@@ -137,6 +137,187 @@ function strMatchBy2char(str1, str2) {
     return str1.split("").filter((_, i) => i < str1.length - 1 && str1[i] === str2[i] && str1[i + 1] === str2[i + 1]).length;
 }
 
-console.log(strMatchBy2char("yytaazz", "yyjaaz"));  //➞ 3
-console.log(strMatchBy2char("edabit", "ed"));  //➞ 1
-console.log(strMatchBy2char("", ""));  //➞ 0
+// console.log(strMatchBy2char("yytaazz", "yyjaaz"));  //➞ 3
+// console.log(strMatchBy2char("edabit", "ed"));  //➞ 1
+// console.log(strMatchBy2char("", ""));  //➞ 0
+
+
+
+// 106 Box Completely Filled?
+// Create a function that checks if the box is completely filled with the asterisk symbol *.
+
+// Examples
+
+// function completelyFilled(arr) {
+//     for (let i = 1; i < arr.length - 1; i++) {
+//         for (let j = 1; j < arr[i].length - 1; j++) {
+//             if (arr[i][j] !== '*') {
+//                 return false;
+//             }
+//         }
+//     }
+//     return true;
+// }
+
+function completelyFilled(arr) {
+    return arr.slice(1, -1).every(item => {
+        return item.slice(1, -1).split("").every(char => char === '*');
+    });
+}
+
+// console.log(completelyFilled([
+//     "#####",
+//     "#***#",
+//     "#***#",
+//     "#***#",
+//     "#####"
+// ]));  //➞ true
+// console.log(completelyFilled([
+//     "#####",
+//     "#* *#",
+//     "#***#",
+//     "#***#",
+//     "#####"
+// ]));  //➞ false
+// console.log(completelyFilled([
+//     "###",
+//     "#*#",
+//     "###"
+// ]));  //➞ true
+// console.log(completelyFilled([
+//     "##",
+//     "##"
+// ]));  //➞ true
+
+
+
+// 107 Reformatting the Date
+// Create a function that converts dates from one of five string formats:
+
+// 1."January 9, 2019" (MM D, YYYY)
+// 2."Jan 9, 2019" (MM D, YYYY)
+// 3."01/09/2019" (MM/DD/YYYY)
+// 4."01-09-2019" (MM-DD-YYYY)
+// 5."01.09.2019" (MM.DD.YYYY)
+// The return value will be an array formatted like: [MM, DD, YYYY], where MM, DD, and YYYY are all integers. Using the examples above:
+
+// Examples
+
+function convertDate(str) {
+    let date = new Date(str);
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let year = date.getFullYear();
+    return [month, day, year];
+}
+
+// console.log(convertDate("January 9, 2019"));  //➞ [1, 9, 2019]
+// console.log(convertDate("Jan 9, 2019"));  //➞ [1, 9, 2019]
+// console.log(convertDate("01/09/2019"));  //➞ [1, 9, 2019]
+// console.log(convertDate("01-09-2019"));  //➞ [1, 9, 2019]
+// console.log(convertDate("01.09.2019"));  //➞ [1, 9, 2019]
+
+
+
+// 108 How Good is Your Name?
+// Create a function that takes a string of name and checks how much good is the given name. A preloaded dictionary of alphabet scores is available in the Code tab. Add up the letters of your name to get the total score.
+
+// const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
+// "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
+// "N": 450, "O": 80, "P": 2, "Q": 12, "R": 400, "S": 113,
+// "T": 405, "U": 11, "V": 10, "W": 10, "X": 3, "Y": 210, "Z": 23}
+// Return your result as per the following rules:
+
+// score <= 60:   "NOT TOO GOOD"
+
+// 61 <= score <= 300:  "PRETTY GOOD"
+
+// 301 <= score <= 599:  "VERY GOOD"
+
+// score >= 600:  "THE BEST"
+
+// Examples
+
+const scores = {
+    "A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
+    "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
+    "N": 450, "O": 80, "P": 2, "Q": 12, "R": 400, "S": 113,
+    "T": 405, "U": 11, "V": 10, "W": 10, "X": 3, "Y": 210, "Z": 23
+};
+
+function nameScore(str) {
+    let totalScore = 0;
+    for (let i = 0; i < str.length; i++) {
+        totalScore += scores[str[i].toUpperCase()];
+    }
+    if (totalScore <= 60) {
+        return "NOT TOO GOOD";
+    } else if (totalScore <= 300) {
+        return "PRETTY GOOD";
+    } else if (totalScore <= 599) {
+        return "VERY GOOD";
+    } else {
+        return "THE BEST";
+    }
+}
+
+// console.log(nameScore("MUBASHIR"));  //➞ "THE BEST"
+// console.log(nameScore("YOU"));  //➞ "VERY GOOD"
+// console.log(nameScore("MATT"));  //➞ "THE BEST"
+// console.log(nameScore("PUBG"));  //➞ "NOT TOO GOOD"
+
+
+
+// 109 Extend the Vowels
+// Create a function that takes a word and extends all vowels by a number num.
+
+// Examples
+
+// function extendVowels(str, num) {
+//     let vowels = "aeiouAEIOU";
+//     let result = "";
+//     for (let i = 0; i < str.length; i++) {
+//         if (vowels.includes(str[i])) {
+//             result += str[i].repeat(num + 1);
+//         } else {
+//             result += str[i];
+//         }
+//     }
+//     return result;
+// }
+
+function extendVowels(str, num) {
+    let vowels = "aeiouAEIOU";
+    return str.split("").map(char => {
+        if (vowels.includes(char)) {
+            return char.repeat(num + 1);
+        }
+        return char;
+    }).join("");
+}
+
+// console.log(extendVowels("Hello", 5));  //➞ "Heeeeeelloooooo"
+// console.log(extendVowels("Edabit", 3));  //➞ "EEEEdaaaabiiiit"
+// console.log(extendVowels("Extend", 0));  //➞ "Extend"
+
+
+
+// 110 Recursion: String Palindromes
+// Write a function that recursively determines if a string is a palindrome.
+
+// Examples
+
+function isPalindrome(str) {
+    if (str.length <= 1) {
+        return true
+    }
+    if (str[0] === str[str.length -1]) {
+        return isPalindrome(str.slice(1, str.length - 1))
+    }
+    return false;
+}
+
+console.log(isPalindrome("abcba"));  //➞ true
+console.log(isPalindrome("b"));  //➞ true
+console.log(isPalindrome(""));  //➞ true
+console.log(isPalindrome("ad"));  //➞ false
