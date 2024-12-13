@@ -38,7 +38,7 @@ function isPotentialFriend(arr1, arr2) {
 
 // Examples
 
-function getIndices(arr, num) {
+function getIndices(arr, n) {
   
 }
 
