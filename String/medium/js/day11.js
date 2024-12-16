@@ -317,7 +317,7 @@ function isPalindrome(str) {
     return false;
 }
 
-console.log(isPalindrome("abcba"));  //➞ true
-console.log(isPalindrome("b"));  //➞ true
-console.log(isPalindrome(""));  //➞ true
-console.log(isPalindrome("ad"));  //➞ false
+// console.log(isPalindrome("abcba"));  //➞ true
+// console.log(isPalindrome("b"));  //➞ true
+// console.log(isPalindrome(""));  //➞ true
+// console.log(isPalindrome("ad"));  //➞ false
