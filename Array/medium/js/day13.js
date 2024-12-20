@@ -196,13 +196,13 @@ function calculateArrowhead(arr) {
     let rightArrow = arr.filter(arrow => arrow[0] === ">").reduce((sum, arrow) => sum + arrow.length, 0);
     let leftArrow = arr.filter(arrow => arrow[0] === "<").reduce((sum, arrow) => sum + arrow.length, 0);
 
-    let sum = rightArrow - leftArrow
+    let sum = rightArrow - leftArrow;
     if (sum > 0) {
         return ">".repeat(sum);
     } else if (sum < 0) {
         return "<".repeat(-sum);
-    }else {
-        return ""
+    } else {
+        return "";
     }
 }
 
