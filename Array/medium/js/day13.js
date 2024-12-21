@@ -202,7 +202,7 @@ function calculateArrowhead(arr) {
     } else if (sum < 0) {
         return "<".repeat(-sum);
     } else {
-        return ""
+        return "";
     }
 }
 
