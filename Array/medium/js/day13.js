@@ -206,6 +206,139 @@ function calculateArrowhead(arr) {
     }
 }
 
-console.log(calculateArrowhead([">>>>", "<", "<", "<"]));  //➞ ">"
-console.log(calculateArrowhead([">", "<", ">>", "<", "<<<"]));  //➞ "<<"
-console.log(calculateArrowhead([">>>", "<<<"]));  //➞ ""
+// console.log(calculateArrowhead([">>>>", "<", "<", "<"]));  //➞ ">"
+// console.log(calculateArrowhead([">", "<", ">>", "<", "<<<"]));  //➞ "<<"
+// console.log(calculateArrowhead([">>>", "<<<"]));  //➞ ""
+
+
+
+// 127 ES6: Destructuring Objects IX
+// Given an array of user objects. If we just wanted to get the name of the third object in the array, one way could be to use an array method like:
+
+let users = [
+    { name: "John", email: "john@example.com" },
+    { name: "Jason", email: "jason@example.com" },
+    { name: "Jeremy", email: "jeremy@example.com" },
+    { name: "Jacob", email: "jacob@example.com" }
+];
+
+// let thirdUser = users.filter((e, i) => i === 2 )[0].name
+// console.log(thirdUser)  // "Jeremy"
+
+// let {name : thirdUser} = users[2];
+// console.log(thirdUser);
+
+let thirdUser = users.map(e => e.name)[2];
+// console.log(thirdUser);
+
+
+
+// 128 Digit Distance
+// The digit distance between two numbers is the total value of the difference between each pair of digits.
+
+// To illustrate:
+
+// digitDistance(234, 489) ➞ 12
+// // Since |2 - 4| + |3 - 8| + |4 - 9| = 2 + 5 + 5
+// Create a function that returns the digit distance between two integers.
+
+// Examples
+
+// function digitDistance(num1, num2) {
+//     let [s1, s2] = [num1, num2].map(n => n.toString().padStart(3, 0));
+//     return [...s1].reduce((sum, item, i) => sum + Math.abs(item - s2[i]),0);
+// }
+
+function digitDistance(num1, num2) {
+    let [s1, s2] = [num1, num2].map(n => n.toString());
+    s1 = s1.padStart(s2.length, "0");
+    s2 = s2.padStart(s1.length, "0");
+
+    let sum = 0;
+    for (let i = 0; i < s1.length; i++) {
+        sum += Math.abs(s1[i] - s2[i]);
+    }
+    return sum;
+}
+
+// console.log(digitDistance(121, 599));  //➞ 19
+// console.log(digitDistance(12, 12));  //➞ 0
+// console.log(digitDistance(10, 20));  //➞ 1
+
+
+
+// 129 Boolean Chain
+// Write three functions:
+
+// AND
+// OR
+// XOR
+// These functions should evaluate an array of true and false values, starting from the leftmost element and evaluating pairwise.
+
+// Examples
+
+// function and(arr) {
+//     return arr.reduce((a, b) => a && b);
+// }
+
+function and(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (!arr[i]) return false;
+    }
+    return true;
+}
+
+// function or(arr) {
+//     return arr.reduce((a, b) => a || b);
+// }
+
+function or(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]) return true;
+    }
+    return false;
+}
+
+// function xor(arr) {
+//     return arr.reduce((a, b) => a !== b);
+// }
+
+function xor(arr) {
+    let result = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        result = result !== arr[i];
+    }
+    return result;
+}
+
+// console.log(and([true, true, false, true]));  //➞ false
+// // and([true, true, false, true]) => and([true, false, true]) => and([false, true]) => false
+// console.log(or([true, true, false, false]));  //➞ true
+// // or([true, true, false, true]) => or([true, false, false]) => or([true, false]) => true
+// console.log(xor([true, true, false, false]));  //➞ false
+// xor([true, true, false, false]) => xor([false, false, false]) => xor([false, false]) => false
+
+
+
+// 130 Count the Number of Duplicate Characters
+// Create a function that returns the amount of duplicate characters in a string. It will be case sensitive and spaces are included. If there are no duplicates, return 0.
+
+// Examples
+
+function duplicates(str) {
+    let count = str.split('').reduce((obj, char) => {
+        obj[char] = (obj[char] || 0) + 1;
+        return obj;
+    }, {});
+
+    return Object.values(count).reduce((sum, val) => sum + (val > 1 ? val - 1 : 0), 0);
+}
+
+console.log(duplicates("Hello World!"));  //➞ 3
+// "o" = 2, "l" = 3.
+// "o" is duplicated 1 extra time and "l" is duplicated 2 extra times.
+// Hence 1 + 2 = 3
+console.log(duplicates("foobar"));  //➞ 1
+console.log(duplicates("helicopter"));  //➞ 1
+console.log(duplicates("birthday"));  //➞ 0
+// If there are no duplicates, return 0
