@@ -329,7 +329,7 @@ function duplicates(str) {
     let count = str.split('').reduce((obj, char) => {
         obj[char] = (obj[char] || 0) + 1;
         return obj;
-    }, {})
+    }, {});
 
     return Object.values(count).reduce((sum, val) => sum + (val > 1 ? val - 1 : 0), 0);
 }
