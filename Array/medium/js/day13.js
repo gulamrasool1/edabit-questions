@@ -327,7 +327,7 @@ function xor(arr) {
 
 function duplicates(str) {
     let count = str.split('').reduce((obj, char) => {
-        obj[char] = (obj[char] || 0) + 1;
+        obj[char] = (obj[char] || 0) + 1
         return obj;
     }, {});
 
