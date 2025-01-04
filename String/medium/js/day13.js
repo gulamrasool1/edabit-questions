@@ -196,7 +196,7 @@ function alphabetIndex(str) {
 // Examples
 
 function calculateArrowhead(arr) {
-    
+
 }
 
 // console.log(calculateArrowhead([">>>>", "<", "<", "<"]));  //➞ ">"
@@ -212,7 +212,7 @@ function calculateArrowhead(arr) {
 
 function duplicates(str) {
     let counts = [...str].map(char => str.split(char).length - 1);
-    return [...new Set(counts)].filter(count => count > 1).reduce((acc, count) => acc + count - 1, 0)
+    return [...new Set(counts)].filter(count => count > 1).reduce((acc, count) => acc + count - 1, 0);
 }
 
 console.log(duplicates("Hello World!"));  //➞ 3
