@@ -221,5 +221,5 @@ console.log(duplicates("Hello World!"));  //➞ 3
 // Hence 1 + 2 = 3
 console.log(duplicates("foobar"));  //➞ 1
 console.log(duplicates("helicopter"));  //➞ 1
-console.log(duplicates("birthday"));  //➞ 0
+console.log(duplicates("birthday"))  //➞ 0
 // If there are no duplicates, return 0
