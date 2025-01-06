@@ -215,11 +215,39 @@ function duplicates(str) {
     return [...new Set(counts)].filter(count => count > 1).reduce((acc, count) => acc + count - 1, 0);
 }
 
-console.log(duplicates("Hello World!"));  //➞ 3
+// console.log(duplicates("Hello World!"));  //➞ 3
 // "o" = 2, "l" = 3.
 // "o" is duplicated 1 extra time and "l" is duplicated 2 extra times.
 // Hence 1 + 2 = 3
-console.log(duplicates("foobar"));  //➞ 1
-console.log(duplicates("helicopter"));  //➞ 1
-console.log(duplicates("birthday"))  //➞ 0
+// console.log(duplicates("foobar"));  //➞ 1
+// console.log(duplicates("helicopter"));  //➞ 1
+// console.log(duplicates("birthday"))  //➞ 0
 // If there are no duplicates, return 0
+
+
+
+// 130 CAPS LOCK DAY is over!
+// October 22nd is CAPS LOCK DAY. Apart from that day, every sentence should be lowercase, so write a function to normalize a sentence.
+
+// Create a function that takes a string. If the string is all uppercase characters, convert it to lowercase and add an exclamation mark at the end.
+
+// Examples
+
+// function normalize(str) {
+//     let lower = str.slice(0).toLowerCase();
+//     return str === str.toUpperCase() ? lower + "!" : str;
+// }
+
+function normalize(str) {
+    let result = true;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== str[i].toUpperCase()) {
+            result = false;
+        }
+    }
+    return result ? str.toLowerCase() + "!" : str;
+}
+
+console.log(normalize("CAPS LOCK DAY IS OVER"));  //➞ "caps lock day is over!"
+console.log(normalize("Today is not caps lock day."));  //➞ "Today is not caps lock day."
+console.log(normalize("Let us stay calm, no need to panic."));  //➞ "Let us stay calm, no need to panic."
