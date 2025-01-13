@@ -115,9 +115,9 @@ function mumbling(str) {
     for (let i = 0; i < str.length; i++) {
         let char = str[i];
         let repeated = char.toUpperCase() + char.toLowerCase().repeat(i);
-        result.push(repeated)
+        result.push(repeated);
     }
-    return result.join("-")
+    return result.join("-");
 }
 
 console.log(mumbling("MubAshIr"));  //➞ "M-Uu-Bbb-Aaaa-Sssss-Hhhhhh-Iiiiiii-Rrrrrrrr"
