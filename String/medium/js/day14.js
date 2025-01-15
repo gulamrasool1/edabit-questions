@@ -122,4 +122,4 @@ function mumbling(str) {
 
 console.log(mumbling("MubAshIr"));  //➞ "M-Uu-Bbb-Aaaa-Sssss-Hhhhhh-Iiiiiii-Rrrrrrrr"
 console.log(mumbling("maTT"));  //➞ "M-Aa-Ttt-Tttt"
-console.log(mumbling("EdaBit"));  //➞ "E-Dd-Aaa-Bbbb-Iiiii-Tttttt"
+console.log(mumbling("EdaBit")); //➞ "E-Dd-Aaa-Bbbb-Iiiii-Tttttt"
