@@ -120,6 +120,59 @@ function mumbling(str) {
     return result.join("-");
 }
 
-console.log(mumbling("MubAshIr"));  //➞ "M-Uu-Bbb-Aaaa-Sssss-Hhhhhh-Iiiiiii-Rrrrrrrr"
-console.log(mumbling("maTT"));  //➞ "M-Aa-Ttt-Tttt"
-console.log(mumbling("EdaBit")); //➞ "E-Dd-Aaa-Bbbb-Iiiii-Tttttt"
+// console.log(mumbling("MubAshIr"));  //➞ "M-Uu-Bbb-Aaaa-Sssss-Hhhhhh-Iiiiiii-Rrrrrrrr"
+// console.log(mumbling("maTT"));  //➞ "M-Aa-Ttt-Tttt"
+// console.log(mumbling("EdaBit")); //➞ "E-Dd-Aaa-Bbbb-Iiiii-Tttttt"
+
+
+
+// 136 Verbed Nouns
+// Create a function that ends the first word of a phrase with "ed", essentially verbifying a noun.
+
+// Examples
+
+// function verbify(str) {
+//     let words = str.split(" ")
+//     if (!words[0].endsWith("ed")) {
+//         words[0] += "ed"
+//     }
+//     return words.join(" ")
+// }
+
+function verbify(str) {
+    let splited = str.split(" ");
+    splited[0] = splited[0].endsWith("ed") ? splited[0] : splited[0] + "ed";
+    return splited.join(" ");
+}
+
+// console.log(verbify("cheese burger"));  //➞ "cheeseed burger"
+// console.log(verbify("salt water"));  //➞ "salted water"
+// console.log(verbify("orange juice"));  //➞ "orangeed juice"
+// console.log(verbify("shredded cheese"));  //➞ "shredded cheese"
+
+
+
+// 137 Letters Shared between Two Words
+// Create a function that returns the number of characters shared between two words.
+
+// Examples
+
+// function sharedLetters(str1, str2) {
+//     return str1.split('').filter(char => str2.includes(char)).length;
+// }
+
+function sharedLetters(str1, str2) {
+    let splited = str1.split("");
+    let count = 0;
+    for (let i = 0; i < splited.length; i++) {
+        if (str2.includes(splited[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(sharedLetters("apple", "meaty"));  //➞ 2
+// Since "ea" is shared between "apple" and "meaty".
+console.log(sharedLetters("fan", "forsook"));  //➞ 1
+console.log(sharedLetters("spout", "shout"));  //➞ 4
