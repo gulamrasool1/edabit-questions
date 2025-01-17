@@ -175,4 +175,4 @@ function sharedLetters(str1, str2) {
 console.log(sharedLetters("apple", "meaty"));  //➞ 2
 // Since "ea" is shared between "apple" and "meaty".
 console.log(sharedLetters("fan", "forsook"));  //➞ 1
-console.log(sharedLetters("spout", "shout"));  //➞ 4
+console.log(sharedLetters("spout", "shout")); //➞ 4
