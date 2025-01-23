@@ -172,7 +172,75 @@ function sharedLetters(str1, str2) {
     return count;
 }
 
-console.log(sharedLetters("apple", "meaty"));  //➞ 2
-// Since "ea" is shared between "apple" and "meaty".
-console.log(sharedLetters("fan", "forsook"));  //➞ 1
-console.log(sharedLetters("spout", "shout"));  //➞ 4
+// console.log(sharedLetters("apple", "meaty"));  //➞ 2
+// // Since "ea" is shared between "apple" and "meaty".
+// console.log(sharedLetters("fan", "forsook"));  //➞ 1
+// console.log(sharedLetters("spout", "shout"));  //➞ 4
+
+
+
+// 138 An Absolute
+// Given a sentence, create a function that replaces every "a" as an article with "an absolute". It should return the same string without any change if it doesn't have any "a".
+
+// Examples
+
+// function absolute(str) {
+//     return str.split(" ").map(word => word.toLowerCase() === 'a' ? 'an absolute' : word).join(" ")
+// }
+
+function absolute(str) {
+    let splited = str.split(' ');
+    for (let i = 0; i < splited.length; i++) {
+        if (splited[i].toLowerCase() === 'a') {
+            splited[i] = 'an absolute';
+        }
+    }
+    return splited.join(" ");
+}
+
+// console.log(absolute("I am a champion!!!"));  //➞ "I am an absolute champion!!!"
+// console.log(absolute("Such an amazing bowler."));  //➞ "Such an amazing bowler."
+// console.log(absolute("A man with no haters."));  //➞ "An absolute man with no haters."
+
+
+
+// 139 A Simple Timer
+// Mubashir created a simple timer but he needs your help to make it readable inside a microcontroller.
+
+// Create a function that takes the number of seconds and returns the timer in "00:00:00" format.
+
+// Examples
+
+function simpleTimer(seconds) {
+    let hours = Math.floor(seconds / 3600).toString().padStart(2, '0');
+    let minutes = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+    let secs = (seconds % 60).toString().padStart(2, '0');
+    return `${hours}:${minutes}:${secs}`;
+}
+
+// console.log(simpleTimer(0));  //➞ "00:00:00"
+// console.log(simpleTimer(59));  //➞ "00:00:59"
+// console.log(simpleTimer(60));  //➞ "00:01:00"
+// console.log(simpleTimer(3599));  //➞ "00:59:59"
+
+
+
+// 140 String Flips
+// Create a function that takes a string as the first argument, and a (string) specification as a second argument. If the specification is "word", return a string with each word reversed while maintaining their original order. If the specification is "sentence", reverse the order of the words in the string, while keeping the words intact.
+
+// Examples
+
+str = "There's never enough time to do all the nothing you want";
+
+function flip(str, spec) {
+    if (spec === 'word') {
+        return str.split(" ").map(word => word.split("").reverse().join("")).join(" ");
+    }else if (spec === 'sentence') {
+        return str.split(" ").reverse().join(" ")
+    }
+}
+
+console.log(flip("Hello", "word"));  //➞ "olleH"
+console.log(flip("Hello", "sentence"));  //➞ "Hello"
+console.log(flip(str, "word"));  //➞ "s'erehT reven hguone emit ot od lla eht gnihton uoy tnaw"
+console.log(flip(str, "sentence"));  //➞ "want you nothing the all do to time enough never There's"
