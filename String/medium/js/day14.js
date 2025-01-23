@@ -235,8 +235,8 @@ str = "There's never enough time to do all the nothing you want";
 function flip(str, spec) {
     if (spec === 'word') {
         return str.split(" ").map(word => word.split("").reverse().join("")).join(" ");
-    }else if (spec === 'sentence') {
-        return str.split(" ").reverse().join(" ")
+    } else if (spec === 'sentence') {
+        return str.split(" ").reverse().join(" ");
     }
 }
 
