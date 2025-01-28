@@ -95,4 +95,4 @@ function billSplit(arr1, arr2) {
 console.log(billSplit(["N", "S", "N"], [10, 10, 20]));  //➞ [25, 15]
 // You pay for half of both "N" dishes (5 + 10) and entirely pay for the "S" dish (10).
 console.log(billSplit(["N", "N"], [10, 10]));  //➞ [10, 10]
-console.log(billSplit(["S", "N"], [41, 10]))  //➞ [46, 5]
+console.log(billSplit(["S", "N"], [41, 10]));  //➞ [46, 5]
