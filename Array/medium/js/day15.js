@@ -92,7 +92,70 @@ function billSplit(arr1, arr2) {
     return [yourTotal, friendTotal];
 }
 
-console.log(billSplit(["N", "S", "N"], [10, 10, 20]));  //➞ [25, 15]
-// You pay for half of both "N" dishes (5 + 10) and entirely pay for the "S" dish (10).
-console.log(billSplit(["N", "N"], [10, 10]));  //➞ [10, 10]
-console.log(billSplit(["S", "N"], [41, 10]));  //➞ [46, 5]
+// console.log(billSplit(["N", "S", "N"], [10, 10, 20]));  //➞ [25, 15]
+// // You pay for half of both "N" dishes (5 + 10) and entirely pay for the "S" dish (10).
+// console.log(billSplit(["N", "N"], [10, 10]));  //➞ [10, 10]
+// console.log(billSplit(["S", "N"], [41, 10]));  //➞ [46, 5]
+
+
+
+// 144 Merge Two Arrays
+// Create a function that takes two arrays and combines them by alternatingly taking elements from each array in turn.
+
+// The arrays may be of different lengths, with at least one character / digit.
+// The first array will contain string characters (lowercase, a-z).
+// The second array will contain integers (all positive).
+
+// Examples
+
+function mergeArrays(arr1, arr2) {
+    let result = [];
+    let maxLength = Math.max(arr1.length, arr2.length);
+    for (let i = 0; i < maxLength; i++) {
+        if (i < arr1.length) {
+            result.push(arr1[i]);
+        }
+        if (i < arr2.length) {
+            result.push(arr2[i]);
+        }
+    }
+    return result;
+}
+
+// console.log(mergeArrays(["f", "d", "w", "t"], [5, 3, 7, 8]));
+// //➞ ["f", 5, "d", 3, "w", 7, "t", 8]
+// console.log(mergeArrays([1, 2, 3], ["a", "b", "c", "d", "e", "f"]));
+// //➞ [1, "a", 2, "b", 3, "c", "d", "e", "f"]
+// console.log(mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5]));
+//➞ ["a", 1, "b", 2, "c", 3, "d", 4, "e", 5]
+
+
+
+// 145 Product of All Other Numbers
+// You have an array of integers, and for each index you want to find the product of every integer except the integer at that index.
+
+// Create a function that takes an array of integers and returns an array of the products.
+
+// Examples
+
+// function getProducts(arr) {
+//     let result = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         let product = 1;
+//         for (let j = 0; j < arr.length; j++) {
+//             if (i !== j) {
+//                 product *= arr[j];
+//             }
+//         }
+//         result.push(product);
+//     }
+//     return result;
+// }
+
+function getProducts(arr) {
+    return arr.map((_, i) => arr.reduce((acc, num, j) => i !== j ? acc * num : acc, 1));
+}
+
+console.log(getProducts([1, 7, 3, 4]));  //➞ [84, 12, 28, 21]
+console.log(getProducts([1, 2, 6, 5, 9]));  //➞ [540, 270, 90, 108, 60]
+console.log(getProducts([1, 2, 3, 0, 5]));  //➞ [0, 0, 0, 30, 0]
