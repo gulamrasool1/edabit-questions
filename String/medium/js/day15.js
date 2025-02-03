@@ -130,7 +130,7 @@ function completeBinary(str) {
 function noYelling(str) {
     for (let i = str.length - 1; i >= 0; i--) {
         if (str[i] !== '?' && str[i] !== '!') {
-            return str.slice(0, i + 1) + str[i + 1];
+            return str.slice(0, i + 1) + str[str.length  - 1];
         }
     }
 }
@@ -141,4 +141,4 @@ console.log(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));  //➞ "I ju
 // Only change repeating punctuation at the end of the sentence.
 console.log(noYelling("Oh my goodness!"));  //➞ "Oh my goodness!"
 // Do not change sentences where there exists only one or zero exclamation marks/question marks.
-console.log(noYelling("I just cannot believe it."));  //➞ "I just cannot believe it."
+console.log(noYelling("I just cannot believe it."));  //➞ "I just cannot believe it.."
