@@ -200,3 +200,126 @@ function isGoodMatch(arr) {
 
 
 
+// 147 Longest Daily Streak
+// Create a function that takes an array of booleans that represent whether or not a player has logged into a game that day. Output the longest streak of consecutive logged in days.
+
+// Examples
+
+function dailyStreak(arr) {
+    let max = 0;
+    let current = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]) {
+            current++;
+            if (current > max) {
+                max = current;
+            }
+        }else {
+            current = 0;
+        }
+    }
+    return max;
+}
+
+// console.log(dailyStreak([true, true, false, true]));  //➞ 2
+// console.log(dailyStreak([false, false, false]));  //➞ 0
+// console.log(dailyStreak([true, true, true, false, true, true]));  //➞ 3
+
+
+
+// 148 Adding Both Ends Together
+// Given an array of numbers, of any length, create a function which counts how many of those numbers pass the following criteria:
+
+// The first and last digits of a number must add to 10.
+
+// Examples
+
+function endsAddTo10(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let numStr = Math.abs(arr[i]).toString();
+        let first = Number(numStr[0]);
+        let last = Number(numStr[numStr.length - 1]);
+
+        if (first + last === 10) {
+            count++
+        }
+    }
+    return count;
+}
+
+// console.log(endsAddTo10([19, 46, 2098]));  //➞ 3
+// console.log(endsAddTo10([33, 44, -55]));  //➞ 1
+// console.log(endsAddTo10([]));  //➞ 0
+
+
+
+// 149 Word Builder
+// In this challenge, you have to build a word from the scrambled letters contained in the first given array. For establishing how to assign the spots to the letters, you will use the positions contained in the second given array.
+
+// letters = ["e", "t", "s", "t"]
+// positions = [1, 3, 2, 0]
+
+// Step 1 ➞ Letter "e" goes to index 1 ➞ _  e  _   _
+// Step 2 ➞ Letter "t" goes to index 3 ➞ _  e  _   t
+// Step 3 ➞ Letter "s" goes to index 2 ➞ _  e  s   t
+// Step 4 ➞ Letter "t" goes to index 0 ➞ t  e  s   t
+// Given the two arrays letters (containing the scrambled letters of the word) and positions (containing the indexes of the letters), implement a function that returns the resulting word as a string.
+
+// Examples
+
+function wordBuilder(letters, positions) {
+    let result = [];
+
+    for (let i = 0; i < letters.length; i++) {
+        result[positions[i]] = letters[i];
+    }
+    return result.join("")
+}
+
+// console.log(wordBuilder(["e", "t", "s", "t"], [1, 3, 2, 0]));  //➞ "test"
+// console.log(wordBuilder(["b", "e", "t", "i", "d", "a"], [3, 0, 5, 4, 1, 2]));  //➞ "edabit"
+// console.log(wordBuilder(["g", "e", "o"], [1, 0, 2]));  //➞ "ego"
+
+
+
+// 150 Accumulating Product
+// Create a function that takes an array and returns an array of the accumulating product.
+
+// Examples
+
+// function accumulatingProduct(arr) {
+//     let result = [];
+//     let product = 1;
+
+//     for (let i = 0; i < arr.length; i++) {
+//         product *= arr[i];
+//         result.push(product);
+//     }
+//     return result;
+// }
+
+// function accumulatingProduct(arr) {
+//     let result = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (i === 0) {
+//             result.push(arr[i]);
+//         } else {
+//             result.push(result[i - 1] * arr[i]);
+//         }
+//     }
+//     return result;
+// }
+
+function accumulatingProduct(arr) {
+    return arr.map((_, i) => {
+        return arr.slice(0, i + 1).reduce((item, num) => item * num)
+    });
+}
+
+console.log(accumulatingProduct([1, 2, 3, 4]));  //➞ [1, 2, 6, 24]
+// [1, 2, 6, 24] can be written as [1, 1 x 2, 1 x 2 x 3, 1 x 2 x 3 x 4]
+console.log(accumulatingProduct([1, 5, 7]));  //➞ [1, 5, 35]
+console.log(accumulatingProduct([1, 0, 1, 0]));  //➞ [1, 0, 0, 0]
+console.log(accumulatingProduct([]));  //➞ []
