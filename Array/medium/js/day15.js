@@ -159,3 +159,44 @@ function getProducts(arr) {
 // console.log(getProducts([1, 7, 3, 4]));  //➞ [84, 12, 28, 21]
 // console.log(getProducts([1, 2, 6, 5, 9]));  //➞ [540, 270, 90, 108, 60]
 // console.log(getProducts([1, 2, 3, 0, 5]));  //➞ [0, 0, 0, 30, 0]
+
+
+
+// 146 Good Match?
+// In this challenge you will be given an array of numbers. Your task is to "marry" each pair of adjacent numbers by adding them, and return the array of "couples" (i.e. sums).
+
+// If the array has an odd length, one number is (sadly) left out, so you should return "bad match".
+
+// Examples
+
+// function isGoodMatch(arr) {
+//     if (arr.length % 2 !== 0) {
+//         return "bad match";
+//     }
+//     let result = [];
+//     for (let i = 0; i < arr.length; i += 2) {
+//         result.push(arr[i] + arr[i + 1]);
+//     }
+//     return result
+// }
+
+function isGoodMatch(arr) {
+    if (arr.length % 2 !== 0) {
+        return "bad match";
+    }
+
+    return arr.reduce((acc, val, i) => {
+        if (i % 2 === 0) {
+            acc.push(val + arr[i + 1]);
+        }
+        return acc;
+    }, []);
+}
+
+// console.log(isGoodMatch([1, 2, 4, 7]));  //➞ [1+2, 4+7] ➞ [3, 11]
+// console.log(isGoodMatch([5, 7, 9, -1, 4, 2]));  //➞ [12, 8, 6]
+// console.log(isGoodMatch([5, 7, 9, -1, 4, 2, 3]));  //➞ "bad match"
+// console.log(isGoodMatch([2, 6, 7, -2, 4]));  //➞ "bad match"
+
+
+
